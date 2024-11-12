@@ -73,10 +73,12 @@ module.exports = {
         //    await verificationModel.deleteMany({user:verificationParam.user})
         //    return res.json({status:500, msg:"unable send varification mail at this moment"})
         // }
-        res.json({ 
-            status: 201, msg:"account created successfully", 
-            data: registeredUser,
-        });
+        // res.json({ 
+        //     status: 201, msg:"account created successfully", 
+        //     data: registeredUser,
+        // });
+
+        res.redirect('/user/auth/login')
     },
     verifyUser: async(req, res) => {
         const {token, user} = req.params;

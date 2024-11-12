@@ -11,6 +11,7 @@ const {
 // define the routes
 router.get('/register', (req,res)=> res.render('pages/register',{error:false, msg:''})) 
 router.post('/register', register)
+router.get('/login', (req,res)=> res.render('pages/login',{error:false, msg:''}))
 router.post('/login', login)
 router.get("/confirm/email/:token/:user",verifyUser)
 // generates and send forgot password tokens email
