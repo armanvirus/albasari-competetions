@@ -10,30 +10,33 @@ module.exports = {
     login: async (req, res) => {
         const { email, password } = req.body;
         if (!email || !password)
-            return res.json({ status: 401, msg: "required email and password" });
+            return res.render('pages/login',{error:true, msg:"required email and password"})
+            // return res.json({ status: 401, msg: "required email and password" });
         const user = await User.findOne({ email });
         if (!user)
-            return res.json({ status: 404, msg: "user not found" })
+            return res.render('pages/login',{error:true, msg:"user not found"})
+            // return res.json({ status: 404, msg: "user not found" })
         const isPassordMatched = await encryptions.comparePassword(user.password, password);
         if (!isPassordMatched)
-            return res.json({ status: 401, msg: "wrong email or password" })
-        if(!user.verified){
-            const verificationParam = await encryptions.issueVerification(user,verificationModel)
-            if(!verificationParam)
-            return res.json({status:401, msg:"something went wrong"})
-        const link = `${req.protocol}://${req.hostname}:${PORT}/confirm/email/user/auth/${verificationParam.token}/${verificationParam.user}`
-        const sub = "Email verification";
-        const isSent = await sendMails(user.email, sub, link);
-        if(!isSent){
-           await verificationModel.deleteMany({user:verificationParam.user})
-           return res.json({status:500, msg:"unable send varification mail at this moment"})
-        }
-            return res.json({status:200, msg:"verification mail is sent to you",
-             link})
-        }else{
+            return res.render('pages/login',{error:true, msg:"wrong emapil or password"})
+            // return res.json({ status: 401, msg: "wrong email or password" })
+        // if(!user.verified){
+            // const verificationParam = await encryptions.issueVerification(user,verificationModel)
+            // if(!verificationParam)
+            // return res.json({status:401, msg:"something went wrong"})
+        // const link = `${req.protocol}://${req.hostname}:${PORT}/confirm/email/user/auth/${verificationParam.token}/${verificationParam.user}`
+        // const sub = "Email verification";
+        // const isSent = await sendMails(user.email, sub, link);
+        // if(!isSent){
+        //    await verificationModel.deleteMany({user:verificationParam.user})
+        //    return res.json({status:500, msg:"unable send varification mail at this moment"})
+        // }
+            // return res.json({status:200, msg:"verification mail is sent to you",
+            //  link})
+        // }else{
             const jwtToken = await encryptions.signToken(user)
             res.json({ status: 200, token: jwtToken, msg: "successfully loged" })
-        }
+        // }
 
     },
     register: async (req, res) => {
