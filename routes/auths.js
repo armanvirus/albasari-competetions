@@ -7,11 +7,11 @@ const {
     forgotPassword,
     changePassword,
     resetPassword} = require('../controllers/auths')
-
+const {skipAuth} = require('../middlewares/authenticator')
 // define the routes
-router.get('/register', (req,res)=> res.render('pages/register',{error:false, msg:''})) 
+router.get('/register', skipAuth, (req,res)=> res.render('pages/register',{error:false, msg:''})) 
 router.post('/register', register)
-router.get('/login', (req,res)=> res.render('pages/login',{error:false, msg:''}))
+router.get('/login', skipAuth, (req,res)=> res.render('pages/login',{error:false, msg:''}))
 router.post('/login', login)
 router.get("/confirm/email/:token/:user",verifyUser)
 // generates and send forgot password tokens email
