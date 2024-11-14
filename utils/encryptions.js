@@ -15,9 +15,9 @@ module.exports = {
         return token;
     },
     verifyToken: async (req) => {
-        let token = req.headers.authorization;
-        if (token && token.startsWith('Bearer ')){
-          token = token.split(" ")[1]
+        let token = req.cookies.jwtToken;
+        // if (token && token.startsWith('Bearer ')){
+        //   token = token.split(" ")[1]
           try {
               const decoded = await jwt.verify(token, process.env.JWT_TOKEN)
               return decoded;
@@ -26,7 +26,7 @@ module.exports = {
               console.log(err)
               return;
           }
-        }
+        // }
 
         return ;
     },

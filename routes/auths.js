@@ -6,7 +6,7 @@ const {
     verifyUser,
     forgotPassword,
     changePassword,
-    resetPassword} = require('../controllers.js/auths')
+    resetPassword} = require('../controllers/auths')
 
 // define the routes
 router.get('/register', (req,res)=> res.render('pages/register',{error:false, msg:''})) 

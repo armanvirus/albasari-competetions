@@ -35,6 +35,10 @@ module.exports = {
             //  link})
         // }else{
             const jwtToken = await encryptions.signToken(user)
+            res.cookie('jwtToken', jwtToken,{
+                httpOnly:true,
+                maxAge:3600000
+            })
             res.json({ status: 200, token: jwtToken, msg: "successfully loged" })
         // }
 

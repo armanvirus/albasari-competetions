@@ -3,7 +3,12 @@ const app = express();
 const path = require('path')
 const dotenv = require("dotenv")
 const expressLayouts = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser'); 
 const authRoutes = require('./routes/auths')
+const appRoutes = require('./routes/app')
+
+//parse cookie
+app.use(cookieParser());
 
 const PORT = process.env.PORT || 5000;
 //setting templating engine
@@ -26,6 +31,7 @@ app.get("/", (req,res)=>{
 })
 // refer to these routes for any authentication related stuffs.
 app.use('/user/auth', authRoutes)
+app.use("/app", appRoutes)
 
 
 
