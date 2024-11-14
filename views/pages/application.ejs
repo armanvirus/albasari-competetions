@@ -1,0 +1,45 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/application.css">
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+        <main class="main">
+            <div class="whole_container">
+                <div class="dula">
+                    <h2>Apply</h2>
+                    <div>
+                        <% if(error){ %>
+                            <%- include('../partials/message') %>
+                                <% } %>
+                                    <form action='/user/auth/login' method="post" id="apply_form">
+                                        <div>
+                                            <div class="left_part">
+                                                <input type="email" name="email" id="name_iput" placeholder="Email">
+                                                <input type="password" name="password" id="name_iput" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="submission">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
+                                            <input type="submit" value="login">
+                                        </div>
+                                    </form>
+                    </div>
+                </div>
+                <div class="bg">
+                    <img src="./img/form_bg.png" alt="aaaaaaaaaa">
+                </div>
+            
+                
+              
+        </main>
+        <%- include('../partials/hamburger.ejs') %>
+    </div>
+    </div>
+<script>
+    document.querySelector('.hambuger').addEventListener('click', function() {
+    document.querySelector('.main_nav').classList.toggle('open');
+    console.log("clicked");
+  });
+</script>

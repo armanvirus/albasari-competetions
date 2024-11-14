@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    --color-primary:#066A38;
+    --color-secondary:#528540;
+    --default-font: ubuntu;
+    --main-shadow: 1px 1px 3px #bebaba;
+    --color-error: rgb(240, 121, 121);
+    --color-warning: rgb(249, 237, 101);
+}
+body {
+    background: rgb(246, 237, 237);
+}
+a {
+    text-decoration: none;
+    /* color: #fff; */
+    /* font-family: var(--default-font); */
+    font-size: 20px;
+    font-weight: 300;
+}
+ul li {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    gap: 100px;
+}
+
+.container {
+    width: 90vw;
+    /* background: red; */
+    /* background: rgb(246, 237, 237); */
+    box-shadow: var(--main-shadow);
+    margin-inline: auto;
+    border-radius: 10px;
+
+
+}
+.container > div {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+.main_nav {
+    width: 20%;
+    height: 90vh;
+    /* background: red; */
+    /* background: rgb(246, 237, 237); */
+    /* box-shadow: var(--main-shadow); */
+    color: #fff;
+    border-radius: 10px;
+}
+
+.main_nav .menu {
+    margin: 100px 0 0 20px;
+
+}
+.menu ul li {
+    margin: 15px 0;
+}
+.menu ul li a {
+    color: var(--color-primary);
+    transition: .2s ease-in-out;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.menu ul li a:hover,
+.menu ul li a:active {
+    width: 100%;
+    background: var(--color-secondary);
+    color: #fff;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 10px 0 10px 15px;
+}
+.menu ul li a.dashboard_link {
+    width: 100%;
+    background: var(--color-secondary);
+    color: #fff;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 10px 0 10px 15px;
+}
+
+.main {
+    width: 75%;
+    /* background: yellow; */
+    margin-top: 7%;
+}
+.apply_form {
+    background: var(--color-error);
+}
+
+.main .banner {
+    width: 100%;
+    /* background: rgb(238, 206, 238); */
+    background: var(--color-secondary);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.main .banner h1 {
+   font-weight: 600;
+    
+}
+.main .main_inner {
+    margin-top: 5%;
+}
+.main_inner .dashboard {
+    margin-top: 15px;
+}
+.main_inner .dashboard .dashboard_top {
+    display: flex;
+    gap: 10px;
+}
+.main_inner .dashboard .dashboard_top .dashboard_card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--color-primary);
+    border-radius: 5px;
+    padding: 30px 20px;
+    color: #fff;
+}
+.main_inner .dashboard .dashboard_top .dashboard_card .icon i{
+    font-size: 40px;
+}
+.main_inner .dashboard .dashboard_top .dashboard_card:nth-child(2){
+    background: var(--color-error);
+}
+.main_inner .dashboard .dashboard_top .dashboard_card .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 10px 0 0 0;
+    font-size: 18px;
+    
+}
+.main_inner .dashboard .dashboard_top .dashboard_card .detail p {
+    /* font-size: 10px; */
+    width: 150px;
+}
+
+
+
+
+/* responsive design */
+@media (max-width: 768px) {
+    .container {
+        /* background: #000; */
+        width: 100vw;
+        /* margin: 0; */
+    }
+    .hambuger {
+        position: fixed;
+        /* background: red; */
+        top: 10px;
+        left: 300px;
+        display: block;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .hambuger div {
+        width: 40px;
+        height: 8px;
+        background: var(--color-secondary);
+        border-radius: 12px;
+        margin: 5px;
+    }
+    .main {
+        width: 100vw;
+        margin-top: 10px;
+        padding: 20px;
+       
+    }
+    .main .main_inner .dashboard .dashboard_top {
+        flex-direction: column;
+    }
+    
+    .main_nav {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        background: var(--color-primary);
+        color: #fff;
+        flex-direction: row-reverse;
+        /* border-radius: 10px; */
+        transform: translateY(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+    .main_nav .menu ul li a {
+        color: #fff;
+    }
+    .main_nav.open {
+        display: block;
+        transform: translateY(0);
+    }
+}
