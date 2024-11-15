@@ -1,1 +1,57 @@
-the dashboard
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/dashboard.css">
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+        <main class="main">
+            <div class="banner">
+                <h1>Welcome!</h1>
+                <h2 class="school_name">Markazu Sa'ad Bn Abi Waqqas</h2>
+            </div>
+            <div class="main_inner">
+                <div class="items_container">
+                <h3>Overview</h3>
+                <div class="dashboard" id="dashboard">
+                <div class="dashboard_top">
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-window-restore"></i></div>
+                        <div class="detail">
+                            <h1>7</h1>
+                            <p>Registered Category</p>
+                        </div>
+                    </div>
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <div class="detail">
+                            <h1>22</h1>
+                            <p>Registered Students</p>
+                        </div>
+                    </div>
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="detail">
+                            <h1>Pending</h1>
+                            <p>Application Status</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard_bottom"></div>
+                </div>
+                <!-- applications section -->
+                 <div class="applications" id="applications">
+
+                 </div>
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/hamburger.ejs') %>
+    </div>
+    </div>
+<script>
+    document.querySelector('.hambuger').addEventListener('click', function() {
+    document.querySelector('.main_nav').classList.toggle('open');
+    console.log("clicked");
+  });
+</script>
