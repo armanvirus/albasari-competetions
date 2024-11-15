@@ -16,13 +16,47 @@
                                     <form action='/user/auth/login' method="post" id="apply_form">
                                         <div>
                                             <div class="left_part">
-                                                <input type="email" name="email" id="name_iput" placeholder="Email">
-                                                <input type="password" name="password" id="name_iput" placeholder="Password">
+                                                <select type="text" name="program" id="name_iput" >
+                                                    <option value="Select Program">Select Program</option>
+                                                    <option value="Musabaqah">Musabaqah</option>
+                                                    <option value="Hadeeth Quiz">Hadeeth Quiz</option>
+                                                </select>
+                                                <select type="text" name="category" id="name_iput" >
+                                                    <option value="Musabaqah category">Musabaqah category</option>
+                                                    <option value="Musabaqah">1 Hizb</option>
+                                                    <option value="Musabaqah">3 Hizb</option>
+                                                    <option value="Musabaqah">5 Hizb</option>
+                                                    <option value="Musabaqah">10 Hizb</option>
+                                                    <option value="Musabaqah">20 Hizb</option>
+                                                    <option value="Musabaqah">40 Hizb</option>
+                                                    <option value="Musabaqah">60 Hizb</option>
+                                                </select>
+                                            </div>
+                                            <div class="left_part">
+                                                <div>
+                                                    <label for="">Candidate Name</label>
+                                                    <input type="text" name="student_name" id="name_iput" placeholder="Candidate Name">
+                                                </div>
+                                                    <div>
+                                                        <label for="">Date of Birth</label>
+                                                        <input type="date" name="student_name" id="name_iput" placeholder="Candidate Name">
+                                                    </div>
+                                            </div>
+                                            <div class="left_part">
+                                                <div>
+                                                    <label for="">Riwaya</label>
+                                                    <input type="text" name="student_riwaya" id="name_iput" placeholder="Riwaya">
+                                                </div>
+                                                <div>
+                                                    <label for="">Description</label>
+                                                    <textarea type="text" name="student_desc" id="name_iput" value="Description">
+
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="submission">
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
-                                            <input type="submit" value="login">
+                                            <input type="submit" value="Add Student">
                                         </div>
                                     </form>
                     </div>
