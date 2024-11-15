@@ -5,15 +5,18 @@
     scroll-behavior: smooth;
 }
 :root {
-    --color-primary:#066A38;
-    --color-secondary:#528540;
+    /* --color-primary:#066A38;
+    --color-secondary:#528540; */
     --default-font: ubuntu;
     --main-shadow: 1px 1px 3px #bebaba;
     --color-error: rgb(240, 121, 121);
     --color-warning: rgb(249, 237, 101);
+    --main-bg: rgba(191,191,191,0.9);
+    --main-green: rgb(6, 187, 118);
+
 }
 body {
-    background: rgb(246, 237, 237);
+    background: var(--main-bg);
 }
 a {
     text-decoration: none;
@@ -52,7 +55,8 @@ ul li {
     /* background: rgb(246, 237, 237); */
     /* box-shadow: var(--main-shadow); */
     color: #fff;
-    border-radius: 10px;
+    /* border-radius: 5px; */
+    border-right: 3px solid var(--main-green);
 }
 
 .main_nav .menu {
@@ -71,7 +75,7 @@ ul li {
 .menu ul li a:hover,
 .menu ul li a:active {
     width: 100%;
-    background: var(--color-secondary);
+    background: var(--main-green);
     color: #fff;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -79,7 +83,7 @@ ul li {
 }
 .menu ul li a.dashboard_link {
     width: 100%;
-    background: var(--color-secondary);
+    background: var(--main-green);
     color: #fff;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -113,10 +117,10 @@ ul li {
     
 }
 .main .main_inner {
-    margin-top: 5%;
+    margin-top: -5%;
 }
 .main_inner .dashboard {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 .main_inner .dashboard .dashboard_top {
     display: flex;
@@ -125,14 +129,15 @@ ul li {
 .main_inner .dashboard .dashboard_top .dashboard_card {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
-    background: var(--color-primary);
+    background: var(--main-green);
     border-radius: 5px;
-    padding: 30px 20px;
+    padding: 20px;
     color: #fff;
 }
 .main_inner .dashboard .dashboard_top .dashboard_card .icon i{
-    font-size: 40px;
+    font-size: 30px;
 }
 .main_inner .dashboard .dashboard_top .dashboard_card:nth-child(2){
     background: var(--color-error);
@@ -167,15 +172,16 @@ ul li {
         top: 10px;
         left: 300px;
         display: block;
-        z-index: 1;
+        /* z-index: 100; */
         cursor: pointer;
     }
     .hambuger div {
         width: 40px;
         height: 8px;
-        background: var(--color-secondary);
+        background: var(--main-green);
         border-radius: 12px;
         margin: 5px;
+        z-index: 100;
     }
     .main {
         width: 100vw;
@@ -191,11 +197,11 @@ ul li {
         display: none;
         width: 100vw;
         height: 100vh;
-        background: var(--color-primary);
+        background: rgb(143, 132, 132);
         color: #fff;
         flex-direction: row-reverse;
         /* border-radius: 10px; */
-        transform: translateY(100%);
+        transform: translateX(100%);
         transition: transform 0.5s ease-in-out;
     }
     .main_nav .menu ul li a {
@@ -203,10 +209,23 @@ ul li {
     }
     .main_nav.open {
         display: block;
-        transform: translateY(0);
+        width: 100vw;
+        height: 100vh;
+        transform: translateX(0);
     }
     #apply_form > div:first-child{
         flex-direction: column;
+    }
+    .left_part {
+       flex-direction: column;
+       width: 100%;
+       
+    }
+    .left_part div {
+        margin-top: -20%;
+    }
+    .whole_container {
+        margin: -5rem -2rem -2rem -2rem;
     }
     .whole_container .bg img{
         position: fixed;
@@ -214,10 +233,24 @@ ul li {
     }
     .dula{
         height: 100%;
-        padding: 3rem .5rem
+        padding: 3rem .5rem;
+        margin-top: 100px;
+        /* margin-inline: auto; */
+        justify-content: center;
     }
-    .left_part{
-        width: 100%;
+    .dula > div {
+        margin-top: 2rem;
+        /* margin-left: 15rem; */
+    }
+    .dula > h2{
+        margin: 80rem 0 0 30px;
+        /* text-align: center; */
+    }
+    #apply_form {
+        /* margin-top: -150px; */
+    }
+    #apply_form > div {
+        margin-left: 20rem;
     }
     .right_part select, .left_part input{
         width: 100%;
@@ -246,8 +279,12 @@ ul li {
     gap: 2rem;
     width:100%;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     min-height:100vh;
+}
+.dula > div {
+    margin-top: 2%;
+    margin-left: -15rem;
 }
 .whole_container .bg{
     position: fixed;
@@ -262,7 +299,7 @@ ul li {
     height:auto;
 }
 .dula > h2{
-    margin-bottom: 2rem;
+    margin-top: 5rem;
     font-family: poppins;
     font-weight: 500;
 }
@@ -270,7 +307,7 @@ ul li {
     z-index: 1;
     width: 100%;
     height: 100%;
-    background:rgba(191,191,191,0.9);
+    /* background:rgba(191,191,191,0.9); */
     margin-top: -10%;
 }
 #apply_form {
@@ -287,16 +324,7 @@ ul li {
     display: flex;
     margin-top: -15px;
 }
-.left_part div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin: 10px 0;
-}
-.left_part div label {
-    margin-left: 15px;
-}
+
 .left_part input{
     cursor: pointer;
     outline: none;
@@ -340,11 +368,11 @@ input::placeholder{
 
 }
 .submission{
-    /* margin:0 0.5rem; */
+    margin:0 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: red;
+    /* background: red; */
 }
 .submission p{
     max-width: 300px;

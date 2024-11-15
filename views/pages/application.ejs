@@ -6,9 +6,35 @@
         <div>
             <%- include('../partials/nav') %>
         <main class="main">
+            <div class="main_inner">
+                <div class="items_container">
+                <h3>Quick Actions</h3>
+                <div class="dashboard" id="dashboard">
+                <div class="dashboard_top">
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <div class="detail">
+                            <p>View Students List</p>
+                        </div>
+                    </div>
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="detail">
+                            <p>Make Payment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard_bottom"></div>
+                </div>
+                <!-- applications section -->
+                 <div class="applications" id="applications">
+
+                 </div>
+                </div>
+            </div>
             <div class="whole_container">
                 <div class="dula">
-                    <h2>Apply</h2>
+                    <h2>Field the form below to add all your students for both the quiz and musabaqah.</h2>
                     <div>
                         <% if(error){ %>
                             <%- include('../partials/message') %>
@@ -33,25 +59,14 @@
                                                 </select>
                                             </div>
                                             <div class="left_part">
-                                                <div>
-                                                    <label for="">Candidate Name</label>
-                                                    <input type="text" name="student_name" id="name_iput" placeholder="Candidate Name">
-                                                </div>
-                                                    <div>
-                                                        <label for="">Date of Birth</label>
-                                                        <input type="date" name="student_name" id="name_iput" placeholder="Candidate Name">
-                                                    </div>
+                                                <input type="text" name="student_name" id="name_iput" placeholder="Candidate Name">
+                                                <input type="date" name="student_name" id="name_iput" placeholder="date">
+
                                             </div>
                                             <div class="left_part">
-                                                <div>
-                                                    <label for="">Riwaya</label>
-                                                    <input type="text" name="student_riwaya" id="name_iput" placeholder="Riwaya">
-                                                </div>
-                                                <div>
-                                                    <label for="">Description</label>
-                                                    <textarea type="text" name="student_desc" id="name_iput" value="Description">
+                                                <input type="text" name="student_riwaya" id="name_iput" placeholder="Riwaya">
+                                                <input type="text" name="student_name" id="name_iput" placeholder="Description">
 
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="submission">
@@ -64,7 +79,7 @@
                 <div class="bg">
                     <img src="./img/form_bg.png" alt="aaaaaaaaaa">
                 </div>
-            
+            </div>
                 
               
         </main>
