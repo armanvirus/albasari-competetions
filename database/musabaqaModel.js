@@ -7,6 +7,7 @@ const mongoose = require("mongoose"),
         name:{type:String, required:true},
         bod:{type:String, required:true},
         riwaya:{type:String, required:true},
+        category:{type:String, required:true},
         description:{type:String, required:true},
         batch:{ type:String, required:true}   
       });
