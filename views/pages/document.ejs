@@ -1,0 +1,118 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/document.css">
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+        <main class="main">
+            <div class="main_inner">
+                <div class="items_container">
+                <h3>Quick Actions</h3>
+                <div class="dashboard" id="dashboard">
+                <div class="dashboard_top">
+                    <a href="/app/edit" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-edit"></i></div>
+                        <div class="detail">
+                            <p>Edit Students Application</p>
+                        </div>
+                    </a>
+                    <a href="/studentList/" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-download"></i></div>
+                        <div class="detail">
+                            <p>Download Students List</p>
+                        </div>
+                    </a>
+                    
+                    <a href="/app/payment" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="detail">
+                            <p>Make Payment</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="dashboard_bottom"></div>
+                </div>
+                <!-- applications section -->
+                 <div class="applications" id="applications">
+
+                 </div>
+                </div>
+            </div>
+          <div class="main_list">
+            <div class="musabaqa_list">
+                <h3 style="margin-top: 1.5rem;">Musabaqah Participants</h3>
+                <div class="table">
+                    <table border="1" cellpadding="2" name="musabaqa_list">
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Category</th>
+                            <th>Riwaya</th>
+                            <th>Description</th>
+                            <th>Date of Birth</th>
+                        </tr>
+                        <tr>
+                            <td class="name">Musa Muhammad</td>
+                            <td>30 Hizb</td>
+                            <td> Hafs</td>
+                            <td> Description</td>
+                            <td>22/06/2007</td>
+                        </tr>
+                       
+                    </table>
+                </div>
+            </div>
+            <div class="hadith_list">
+                <h3>Hadith Participants</h3>
+                <div class="table">
+                    <table border="1" cellpadding="2" name="musabaqa_list">
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Program</th>
+                            <th>Course</th>
+                            <th>Date of Birth</th>
+                        </tr>
+                        <tr>
+                            <td class="name">Musa Muhammad</td>
+                            <td>Hadith Quiz</td>
+                            <td>مِائَة عَامِل</td>
+                            <td>22/06/2007</td>
+                        </tr>
+                       
+                    </table>
+                </div>
+            </div>
+          </div>
+              
+        </main>
+        <%- include('../partials/hamburger.ejs') %>
+    </div>
+    </div>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Toggle the menu open/close
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main_nav');
+    
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    mainNav.classList.toggle('open');
+                });
+            }
+    
+            // Get the program input element
+            const program = document.getElementById('program_iput');
+    
+            // Check if the element exists before adding an event listener
+            if (program) {
+                // Add event listener for change on the program dropdown
+                program.addEventListener('change', (e) => {
+                    console.log(e.target.value);
+                });
+    
+                // Log the initial value of the program input
+                console.log('The program:', program.value);
+            }
+        });
+    </script>
+    

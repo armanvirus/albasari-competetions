@@ -40,7 +40,7 @@
             </div>
             <div class="whole_container">
                 <div class="dula">
-                    <h2>Field the form below to add all your students for both the quiz and musabaqah.</h2>
+                    <h2 style="margin-top: 1rem;">Field the form below to add all your students for both the quiz and musabaqah.</h2>
                     <div>
                         <% if(error){ %>
                             <%- include('../partials/message') %>
@@ -90,21 +90,31 @@
         <%- include('../partials/hamburger.ejs') %>
     </div>
     </div>
-    <script>
-        document.querySelector('.hamburger').addEventListener('click', function() {
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
             // Toggle the menu open/close
-            document.querySelector('.main_nav').classList.toggle('open');
-            
-            // Get the program dropdown and add a change event listener
-            const program = document.getElementById('program_iput');
-            
-            // Add event listener for change on the program dropdown
-            program.addEventListener('change', (e) => {
-                console.log(e.target.value);  // Fix the typo: 'console' not 'coonsole'
-            });
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main_nav');
     
-            // Log the initial value of the program dropdown when the hamburger is clicked
-            console.log('The program:', program.value);
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    mainNav.classList.toggle('open');
+                });
+            }
+    
+            // Get the program input element
+            const program = document.getElementById('program_iput');
+    
+            // Check if the element exists before adding an event listener
+            if (program) {
+                // Add event listener for change on the program dropdown
+                program.addEventListener('change', (e) => {
+                    console.log(e.target.value);
+                });
+    
+                // Log the initial value of the program input
+                console.log('The program:', program.value);
+            }
         });
     </script>
     
