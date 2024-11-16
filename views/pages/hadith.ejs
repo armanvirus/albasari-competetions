@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/application.css">
 
+
     <div class="container">
         <div>
             <%- include('../partials/nav') %>
@@ -11,24 +12,24 @@
                 <h3>Quick Actions</h3>
                 <div class="dashboard" id="dashboard">
                 <div class="dashboard_top">
-                    <div class="dashboard_card">
+                    <a href="/app/document" class="dashboard_card">
                         <div class="icon"><i class="fa fa-users"></i></div>
                         <div class="detail">
                             <p>View Students List</p>
                         </div>
-                    </div>
+                    </a>
                     <a href="/app/application" class="dashboard_card">
                         <div class="icon"><i class="fa fa-cloud"></i></div>
                         <div class="detail">
                             <p>Musabaqah Application</p>
                         </div>
                     </a>
-                    <div class="dashboard_card">
+                    <a href="/app/payment" class="dashboard_card">
                         <div class="icon"><i class="fa fa-check"></i></div>
                         <div class="detail">
                             <p>Make Payment</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="dashboard_bottom"></div>
                 </div>
