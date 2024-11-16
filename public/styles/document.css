@@ -105,7 +105,7 @@ ul li {
     scroll-behavior: smooth; */
 }
 table {
-    margin-top: 2rem;
+    margin: 2rem 0;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
