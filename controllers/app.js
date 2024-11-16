@@ -47,7 +47,7 @@ module.exports = {
             riwaya,
             description,
             category,
-            SchoolName:req.user.name,
+            schoolName:req.user.name,
             school:req.user._id,
             batch
 
