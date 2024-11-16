@@ -1,0 +1,94 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/application.css">
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+        <main class="main">
+            <div class="main_inner">
+                <div class="items_container">
+                <h3>Quick Actions</h3>
+                <div class="dashboard" id="dashboard">
+                <div class="dashboard_top">
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <div class="detail">
+                            <p>View Students List</p>
+                        </div>
+                    </div>
+                    <div class="dashboard_card">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="detail">
+                            <p>Make Payment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard_bottom"></div>
+                </div>
+                <!-- applications section -->
+                 <div class="applications" id="applications">
+
+                 </div>
+                </div>
+            </div>
+            <div class="whole_container">
+                <div class="dula">
+                    <h2>Field the form below to add all your students for both the quiz and musabaqah.</h2>
+                    <div>
+                        <% if(error){ %>
+                            <%- include('../partials/message') %>
+                                <% } %>
+                                    <form action='/user/auth/login' method="post" id="apply_form">
+                                        <div>
+                                            <div class="left_part">
+                                                <select type="text" name="program" id="name_iput" >
+                                                    <option value="Select Program">Select Program</option>
+                                                    <option value="Musabaqah">Musabaqah</option>
+                                                    <option value="Hadeeth Quiz">Hadeeth Quiz</option>
+                                                </select>
+                                                <select type="text" name="category" id="name_iput" >
+                                                    <option value="Musabaqah category">Musabaqah category</option>
+                                                    <option value="Musabaqah">1 Hizb</option>
+                                                    <option value="Musabaqah">3 Hizb</option>
+                                                    <option value="Musabaqah">5 Hizb</option>
+                                                    <option value="Musabaqah">10 Hizb</option>
+                                                    <option value="Musabaqah">20 Hizb</option>
+                                                    <option value="Musabaqah">40 Hizb</option>
+                                                    <option value="Musabaqah">60 Hizb</option>
+                                                </select>
+                                            </div>
+                                            <div class="left_part">
+                                                <input type="text" name="student_name" id="name_iput" placeholder="Candidate Name">
+                                                <input type="date" name="student_name" id="name_iput" placeholder="date">
+
+                                            </div>
+                                            <div class="left_part">
+                                                <input type="text" name="student_riwaya" id="name_iput" placeholder="Riwaya">
+                                                <input type="text" name="student_name" id="name_iput" placeholder="Description">
+
+                                            </div>
+                                        </div>
+                                        <div class="submission">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
+                                            <input type="submit" value="Add Student">
+                                        </div>
+                                    </form>
+                    </div>
+                </div>
+                <div class="bg">
+                    <img src="./img/form_bg.png" alt="aaaaaaaaaa">
+                </div>
+            </div>
+                
+              
+        </main>
+        <%- include('../partials/hamburger.ejs') %>
+    </div>
+    </div>
+<script>
+    document.querySelector('.hambuger').addEventListener('click', function() {
+    document.querySelector('.main_nav').classList.toggle('open');
+    console.log("clicked");
+  });
+</script>
