@@ -39,7 +39,8 @@ module.exports = {
                 httpOnly:true,
                 maxAge:3600000
             })
-            res.json({ status: 200, token: jwtToken, msg: "successfully loged" })
+            // res.json({ status: 200, token: jwtToken, msg: "successfully loged" })
+            res.redirect('/app/dashboard')
         // }
 
     },

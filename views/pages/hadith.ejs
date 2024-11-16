@@ -1,6 +1,7 @@
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/application.css">
+<link rel="icon" href="/public/img/Muslim.jpg">
 
     <div class="container">
         <div>
@@ -17,10 +18,10 @@
                             <p>View Students List</p>
                         </div>
                     </a>
-                    <a href="/app/Hadith" class="dashboard_card">
+                    <a href="/app/application" class="dashboard_card">
                         <div class="icon"><i class="fa fa-cloud"></i></div>
                         <div class="detail">
-                            <p>Hadith Quiz Application</p>
+                            <p>Musabaqah Application</p>
                         </div>
                     </a>
                     <a href="/app/payment" class="dashboard_card">
@@ -40,37 +41,23 @@
             </div>
             <div class="whole_container">
                 <div class="dula">
-                    <h2 style="margin-top: 1rem;">Field the form below to add all your students for both the quiz and musabaqah.</h2>
+                    <h2 style="margin-top: -4rem;">Fill the form below to add all your students for both the quiz and musabaqah.</h2>
                     <div>
                         <% if(error){ %>
                             <%- include('../partials/message') %>
                                 <% } %>
-                                    <form action='/app/application' method="post" id="apply_form">
+                                    <form action='/app/quiz' method="post" id="apply_form">
                                         <div>
                                             <div class="left_part">
                                                 <select type="text" name="program" id="program_iput" disabled>
                                                     <option value="Select Program">Musabaqah</option>
                                                     <!-- <option value="quiz">Hadeeth Quiz</option> -->
                                                 </select>
-                                                <select type="text" name="category" id="category_iput" >
-                                                    <option value="Musabaqah category">Musabaqah category</option>
-                                                    <option value="1hizb">1 Hizb</option>
-                                                    <option value="3hizb">3 Hizb</option>
-                                                    <option value="5hizb">5 Hizb</option>
-                                                    <option value="10hizb">10 Hizb</option>
-                                                    <option value="20hizb">20 Hizb</option>
-                                                    <option value="40hizb">40 Hizb</option>
-                                                    <option value="60hizb">60 Hizb</option>
-                                                </select>
+                            
                                             </div>
-                                            <div class="left_part">
+                                            <div class="left_part" >
                                                 <input type="text" name="name" id="name" placeholder="Candidate Name">
                                                 <input type="date" name="dob" id="dob" placeholder="date">
-
-                                            </div>
-                                            <div class="left_part">
-                                                <input type="text" name="riwaya" id="riwaya" placeholder="Riwaya">
-                                                <input type="text" name="description" id="description" placeholder="Description">
 
                                             </div>
                                         </div>
@@ -90,31 +77,21 @@
         <%- include('../partials/hamburger.ejs') %>
     </div>
     </div>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
             // Toggle the menu open/close
-            const hamburger = document.querySelector('.hamburger');
-            const mainNav = document.querySelector('.main_nav');
-    
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    mainNav.classList.toggle('open');
-                });
-            }
-    
-            // Get the program input element
+            document.querySelector('.main_nav').classList.toggle('open');
+            
+            // Get the program dropdown and add a change event listener
             const program = document.getElementById('program_iput');
+            
+            // Add event listener for change on the program dropdown
+            program.addEventListener('change', (e) => {
+                console.log(e.target.value);  // Fix the typo: 'console' not 'coonsole'
+            });
     
-            // Check if the element exists before adding an event listener
-            if (program) {
-                // Add event listener for change on the program dropdown
-                program.addEventListener('change', (e) => {
-                    console.log(e.target.value);
-                });
-    
-                // Log the initial value of the program input
-                console.log('The program:', program.value);
-            }
+            // Log the initial value of the program dropdown when the hamburger is clicked
+            console.log('The program:', program.value);
         });
     </script>
     

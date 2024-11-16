@@ -96,9 +96,30 @@ ul li {
     /* background: yellow; */
     margin-top: 7%;
 }
-.apply_form {
-    background: var(--color-error);
+.main_list {
+    /* width: 98vw; */
 }
+.main_list .musabaqa_list{
+    /* width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth; */
+}
+table {
+    margin: 2rem 0;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 
 .main .banner {
     width: 100%;
@@ -399,27 +420,3 @@ input::placeholder{
     box-shadow: 0 0 3px rgba(12,202,74, .3);
     border-radius: 5px;
 }
-
-/* @media(max-width:650px){
-    #apply_form > div:first-child{
-        flex-direction: column;
-    }
-    .whole_container .bg img{
-        position: fixed;
-        top: 25%;
-    }
-    .dula{
-        height: 100%;
-        padding: 3rem .5rem
-    }
-    .left_part{
-        width: 100%;
-    }
-    .right_part select, .left_part input{
-        width: 100%;
-    }
-    .submission input{
-        width: 98%;
-    }
-
-} */
