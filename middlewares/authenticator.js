@@ -5,6 +5,13 @@ isAuthenticated:async(req,res,next)=>{
     const school = await encryptions.verifyToken(req);
     if(school){
         const user = await User.findOne({ email:school.user });
+        if(!user){
+            res.clearCookie('jwtToken',{
+                httpOnly:true,
+                maxAge:3600000
+            })
+            return res.redirect('/user/auth/login')
+        }
         req.user = user
         return next()
     }
@@ -17,6 +24,6 @@ skipAuth:async(req,res,next)=>{
     if (!school) {
         return next();
       }
-      res.redirect('/dashboard');  
+      res.redirect('/app/dashboard');  
 }
 }

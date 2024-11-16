@@ -1,10 +1,10 @@
 const express = require("express")
 const router = express.Router();
-const {application, participants,quiz} = require('../controllers/app')
+const {dashboard,application, participants,quiz} = require('../controllers/app')
 const {isAuthenticated} = require('../middlewares/authenticator')
 
 // define the routes
-router.get('/dashboard', isAuthenticated, (req,res)=> res.render('pages/dashboard',{error:false, msg:''}));
+router.get('/dashboard', isAuthenticated, dashboard);
 router.get('/application', isAuthenticated, (req,res)=> res.render('pages/application',{error:false, msg:''})) 
 router.get('/hadith', isAuthenticated, (req,res)=> res.render('pages/hadith',{error:false, msg:''})) 
 router.get('/payment',isAuthenticated, (req,res)=> res.render('pages/payment',{error:false, msg:''})) 
