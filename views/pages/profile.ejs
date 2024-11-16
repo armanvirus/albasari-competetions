@@ -6,13 +6,36 @@
         <div>
             <%- include('../partials/nav') %>
         <main class="main">
+            <div class="profile">
             <div class="profile_left">
                 <div class="profile_badge">
                     <img src="/img/badge.jpg" alt="" class="profile_icon">
                     <h3>Markazu Sa'ad bn abi waqqas Littahfizul Qur'an</h3>
                 </div>
+                <div class="edit-btn" onclick="editProfile()">
+                    <i class="fa fa-edit"></i>
+                </div>
+                <div class="school_history">
+                    
+                </div>
             </div>
-            <div class="profile_right"></div>
+            <div class="profile_right">
+                <div class="details">
+                    <div class="detail_contact">
+                        <i class="fa fa-envelope"></i>
+                        <p>school@example.com</p>
+                    </div>
+                    <div class="detail_contact">
+                        <i class="fa fa-phone-square"></i>
+                        <p>0903 2509 094</p>
+                    </div>
+                    <div class="detail_contact">
+                        <i class="fa fa-home"></i>
+                        <p>Near District Head, Bolari<br> Gombe State</p>
+                    </div>
+                </div>
+            </div>
+            </div>
         </main>
         <%- include('../partials/hamburger.ejs') %>
     </div>
