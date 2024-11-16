@@ -25,7 +25,7 @@ module.exports = {
         res.render('pages/dashboard',{
              name:req.user.name,
              categories:registeredCategories,
-            totalStudents: students ? students.length : 0})
+            totalStudents: students ? (students.length + totalQuiz) : 0})
 
     },
     application:async(req,res)=>{
