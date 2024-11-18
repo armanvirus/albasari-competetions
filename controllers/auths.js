@@ -44,6 +44,13 @@ module.exports = {
         // }
 
     },
+    logout:async(req,res)=>{
+        res.clearCookie('jwtToken',{
+            httpOnly:true,
+            maxAge:3600000
+        })
+        return res.redirect('/user/auth/login')
+    },
     register: async (req, res) => {
         const { email, password, name, address, phone } = req.body;
         console.log(req.body)
