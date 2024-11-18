@@ -86,4 +86,35 @@ module.exports = {
             // res.json({status:401, msg:'participant added successfully'})
             res.render('pages/hadith', {error:true, msg:'participant added successfully'})
     },
+    edit:async(req,res)=>{
+        const {name,dob,riwaya,description, category ,id} = req.body;
+        if(!name || !dob || !riwaya || !description || !category || !id)
+            return res.render('pages/edith',{error:true, msg:`unable to update student`})
+
+        const updatedDoc = await musabaqaModel.findByIdAndUpdate(
+            id,
+            { $set: { name,dob,riwaya,description, category } },
+            { new: true }
+          );
+
+          if(!updatedDoc)
+            return res.render('pages/edit',{error:true, msg:`unable to update ${name}`})
+          res.render('pages/edit',{error:true, msg:`student ${name} successfully updated`})
+          
+    },
+    edith:async(req,res)=>{
+        const {name,dob,id} = req.body;
+        if(!name || !dob || !id) 
+            return res.render('pages/edith',{error:true, msg:`unable to update student`})
+        const updatedDoc = await musabaqaModel.findByIdAndUpdate(
+            id,
+            { $set: { name,dob} },
+            { new: true }
+          );
+
+          if(!updatedDoc)
+            return res.render('pages/edith',{error:true, msg:`unable to update ${name}`})
+          res.render('pages/edith',{error:true, msg:`student ${name} successfully updated`})
+          
+    }
 }
