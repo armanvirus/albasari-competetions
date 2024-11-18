@@ -51,13 +51,17 @@
                             <th>Description</th>
                             <th>Date of Birth</th>
                         </tr>
-                        <tr>
-                            <td class="name">Musa Muhammad</td>
-                            <td>30 Hizb</td>
-                            <td> Hafs</td>
-                            <td> Description</td>
-                            <td>22/06/2007</td>
-                        </tr>
+                        <% if(musabaqa){ %>
+                                <% musabaqa.forEach((user)=>{ %>
+                                    <tr>
+                                        <td class="name"> <%= user.name %> </td>
+                                        <td><%= user.category %></td>
+                                        <td> <%= user.riwaya %> </td>
+                                        <td> <%= user.description %> </td>
+                                        <td><%= user.dob %></td>
+                                    </tr> 
+                               <% }) %>
+                            <% } %>
                        
                     </table>
                 </div>
@@ -72,12 +76,17 @@
                             <th>Course</th>
                             <th>Date of Birth</th>
                         </tr>
-                        <tr>
-                            <td class="name">Musa Muhammad</td>
-                            <td>Hadith Quiz</td>
-                            <td>مِائَة عَامِل</td>
-                            <td>22/06/2007</td>
-                        </tr>
+                        
+                        <% if(quiz){ %>
+                            <% quiz.forEach((user)=>{ %>
+                                <tr>
+                                    <td class="name"> <%= user.name %> </td>
+                                    <td>Hadith Quiz</td>
+                                    <td>مِائَة عَامِل</td>
+                                    <td><%= user.dob %></td>
+                                </tr> 
+                           <% }) %>
+                        <% } %>
                        
                     </table>
                 </div>
