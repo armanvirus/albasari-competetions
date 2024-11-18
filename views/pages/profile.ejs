@@ -2,54 +2,84 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/profile.css">
 
-    <div class="container">
-        <div>
-            <%- include('../partials/nav') %>
-        <main class="main">
-            <div class="profile">
-            <div class="profile_left">
-                <div class="profile_badge">
-                    <img src="/img/badge.jpg" alt="" class="profile_icon">
-                    <h3>Markazu Sa'ad bn abi waqqas Littahfizul Qur'an</h3>
-                </div>
-                <div class="edit-btn" onclick="editProfile()">
-                    <i class="fa fa-edit"></i>
-                </div>
-                <div class="school_history">
-                    
-                </div>
-            </div>
-            <div class="profile_right">
-                <div class="details">
-                    <div class="detail_contact">
-                        <i class="fa fa-envelope"></i>
-                        <p>school@example.com</p>
+<div class="container">
+    <div>
+        <%- include('../partials/nav') %>
+            <main class="main">
+                <div class="profile">
+                    <div class="profile_left">
+                        <div class="profile_badge">
+                            <img src="/img/badge.jpg" alt="" class="profile_icon">
+                        </div>
+                        <div class="file-upload">
+                            <input type="file" id="fileInput" hidden />
+                            <label for="fileInput" class="custom-file-label">Choose File</label>
+                            <span id="fileName">No file chosen</span>
+                        </div>
                     </div>
-                    <div class="detail_contact">
-                        <i class="fa fa-phone-square"></i>
-                        <p>0903 2509 094</p>
-                    </div>
-                    <div class="detail_contact">
-                        <i class="fa fa-home"></i>
-                        <p>Near District Head, Bolari<br> Gombe State</p>
+                    <div class="profile_right">
+                        <div class="details">
+                           <div>
+                            <div class="detail_contact">
+                                <div class="icons">
+                                    <i class="fa fa-university"></i>
+                                    <span>School</span>
+                                </div>
+                                <p>Albasary Academy</p>
+                            </div>
+                            <div class="detail_contact">
+                                <div class="icons">
+                                    <i class="fa fa-envelope"></i>
+                                    <span>Email</span>
+                                </div>
+                                <p>school@example.com</p>
+                            </div>
+                           </div>
+                            <div>
+                                <div class="detail_contact">
+                                    <div class="icons">
+                                        <i class="fa fa-phone-square"></i>
+                                        <span>Contact</span>
+                                    </div>
+                                    <p>0903 2509 094</p>
+                                </div>
+                                <div class="detail_contact">
+                                    <div class="icons">
+                                        <i class="fa fa-home"></i>
+                                        <span>Address</span>
+                                    </div>
+                                    <p>Near District Head, Bolari<br> Gombe State</p>
+                                </div>
+                            </div>
+                            <div class="edit-btn" onclick="editProfile()">
+                                <i class="fa fa-edit"></i>
+                                <p>EDIT PROFILE</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
-        </main>
-        <%- include('../partials/hamburger.ejs') %>
+            </main>
+            <%- include('../partials/hamburger.ejs') %>
     </div>
-    </div>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Toggle the menu open/close
-            const hamburger = document.querySelector('.hamburger');
-            const mainNav = document.querySelector('.main_nav');
-    
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    mainNav.classList.toggle('open');
-                });
-            }
-        });
-    </script>    
+</div>
+<script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Toggle the menu open/close
+        const hamburger = document.querySelector('.hamburger');
+        const mainNav = document.querySelector('.main_nav');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                mainNav.classList.toggle('open');
+            });
+        }
+    });
+
+    const fileInput = document.getElementById("fileInput");
+    const fileName = document.getElementById("fileName");
+
+    fileInput.addEventListener("change", () => {
+        fileName.textContent = fileInput.files[0]?.name || "No file chosen";
+    });
+
+</script>

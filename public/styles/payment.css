@@ -169,14 +169,21 @@ table {
     align-items: center;
     justify-content: center;
     color: #fff;
+    flex-direction: column;
   }
   .btn_container .pay-btn {
     background: var(--main-green);
-    padding: 1rem 10rem;
+    padding: 1rem 5rem;
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 1rem;
   }
+  .btn_container .pay-btn:last-child {
+    display: none;
+  }
+
+/*   //cluster password: vyJHw0BMR3eecHUL  */
 
 /* responsive design */
 @media (max-width: 768px) {

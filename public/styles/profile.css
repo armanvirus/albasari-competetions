@@ -98,68 +98,122 @@ ul li {
 }
 .main .profile {
     display: flex;
-    align-items: flex-start;
-    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 
-.main .profile .profile_left{}
+.main .profile .profile_left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .main .profile .profile_left .profile_badge {
-    background: linear-gradient(to bottom, var(--main-bg) 50%, var(--main-green) 50%);
-    border-radius: 10px;
+    border-radius: 1rem;
     padding: 2rem;
     width: 20rem;
-    box-shadow: 1rem 1rem 1rem var(--main-bg);
     cursor: pointer;
+    
     
 }
 .main .profile .profile_left .profile_badge .profile_icon {
-    width: 130px;
-    height: 130px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: inherit;
 }
-.main .profile .profile_left .profile_badge h3 {
-    font-weight: 500;
-    margin-top: 1.5rem;
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .custom-file-label {
+    padding: 10px 20px;
+    background-color: var(--main-green);
     color: #fff;
-}
-.profile_left .edit-btn {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .custom-file-label:hover {
+    background-color: #fff;
     color: var(--main-green);
-    font-size: 23px;
-    position: absolute;
-    top: 5rem;
-    left: 37rem;
+  }
+  
+  #fileName {
+    font-size: 14px;
+    color: #555;
+  }
+  
+
+.profile_right .edit-btn {
+    color: var(--main-green);
+    border: 2px solid var(--main-green);
     cursor: pointer;
     transition: .2s ease-in-out;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: .5rem 0px;
 }
-.profile_left .edit-btn:hover {
+.profile_right .edit-btn:hover {
     color: #fff;
-    transform: scale(1.2);
-    transition: .2s ease-in-out;
+    transition: background .2s ease-in-out;
+    background: var(--main-green)
 }
 
-.main .profile .profile_right {}
+.main .profile .profile_right {
+    height: ;
+}
 .main .profile .profile_right .details {
     width: 35vw;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    /* gap: 10px; */
     
 }
+.main .profile .profile_right .details > div {
+    display: flex;
+    /* margin: 1rem 0rem; */
+}
+.main .profile .profile_right .details .detail_contact .icons:nth-child(1) {
+    margin-top: 0;
+
+}
+.main .profile .profile_right .details .detail_contact .icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5rem;
+    /* margin: 10px 0; */
+}
+.main .profile .profile_right .details .detail_contact .icons span {
+    font-size: 20px;
+    font-weight: bold;
+}
+.main .profile .profile_right .details .detail_contact:nth-last-child(1) {
+    /* margin-top: 0; */
+}
 .main .profile .profile_right .details .detail_contact {
-    background: var(--main-green);
-    padding: 1.5rem;
     width: 100%;
-    border-radius: 10px;
-    color: #fff;
+    margin: 10px 0;
+    color: #222;
 }
 .main .profile .profile_right .details .detail_contact i {
-    font-size: 28px;
+    font-size: 20px;
+    color: #111 !important;
 }
 .main .profile .profile_right .details .detail_contact p {
     margin: 1rem 0 0 0;
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-weight: 300;
+    color: #333 !important;
 }
 
 .main .profile .profile_right .details {}
