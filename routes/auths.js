@@ -6,8 +6,10 @@ const {
     verifyUser,
     forgotPassword,
     changePassword,
-    resetPassword} = require('../controllers/auths')
-const {skipAuth} = require('../middlewares/authenticator')
+    resetPassword,
+    logout
+} = require('../controllers/auths')
+const {skipAuth, isAuthenticated} = require('../middlewares/authenticator')
 // define the routes
 router.get('/register', skipAuth, (req,res)=> res.render('pages/register',{error:false, msg:''})) 
 router.post('/register', register)
@@ -20,5 +22,7 @@ router.post("/forgot/password/init", forgotPassword)
 router.post("/password/change/:token/:issuer",changePassword)
 // reset password
 router.post("/password/reset", resetPassword)
+
+router.get('/logout',isAuthenticated, logout)
 
 module.exports = router;

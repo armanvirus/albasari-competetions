@@ -61,8 +61,11 @@ module.exports = {
             res.render('pages/application', {error:true, msg:'participant added successfully'})
     },
     participants:async(req,res)=>{
-        const musabaqa = musabaqaModel.find({school:req.user._id, batch})
-        res.json({status:200, participants:musabaqa})
+        const musabaqa =await musabaqaModel.find({school:req.user._id, batch}).sort({hizb:1})
+        const quiz = await quizModel.find({school:req.user._id, batch})
+        // res.json({status:200, participants:musabaqa})
+        // console.log(musabaqa,quiz)
+        res.render('pages/document',{musabaqa,quiz})
     },
     quiz:async(req,res)=>{
         const {name,dob} = req.body;
