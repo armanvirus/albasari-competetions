@@ -168,9 +168,7 @@ ul li {
     background: var(--main-green)
 }
 
-.main .profile .profile_right {
-    height: ;
-}
+.main .profile .profile_right {}
 .main .profile .profile_right .details {
     width: 35vw;
     display: flex;
@@ -287,12 +285,30 @@ ul li {
         
     }
     .main .profile .profile_right .details .detail_contact {
-        background: var(--main-green);
+        /* background: var(--main-green); */
         padding: 1.5rem;
-        width: 100%;
+        width: 98vw;
         border-radius: 10px;
         color: #fff;
     }
+    .main .profile .profile_right .details > div {
+        flex-direction: column;
+        /* margin: 1rem 0rem; */
+    }
+    .main .profile .profile_right .details .detail_contact {
+        color: #222;
+    }
+    .main .profile .profile_right .details .detail_contact i {
+        font-size: 20px;
+        color: #111 !important;
+    }
+    .main .profile .profile_right .details .detail_contact p {
+        color: #333 !important;
+    }
+    .profile_right .edit-btn {
+        border-radius: 10rem;
+        padding: .5rem 5rem;
+        margin-bottom: 1rem;
 }
 
 
