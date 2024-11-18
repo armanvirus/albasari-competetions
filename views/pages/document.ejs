@@ -11,16 +11,16 @@
                 <h3>Quick Actions</h3>
                 <div class="dashboard" id="dashboard">
                 <div class="dashboard_top">
-                    <a href="/app/edit" class="dashboard_card">
-                        <div class="icon"><i class="fa fa-edit"></i></div>
+                    <a href="/application/list" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-download"></i></div>
                         <div class="detail">
-                            <p>Edit Students Application</p>
+                            <p>Musabaqa Students List</p>
                         </div>
                     </a>
                     <a href="/studentList/" class="dashboard_card">
                         <div class="icon"><i class="fa fa-download"></i></div>
                         <div class="detail">
-                            <p>Download Students List</p>
+                            <p>Hadith Students List</p>
                         </div>
                     </a>
                     
@@ -50,6 +50,7 @@
                             <th>Riwaya</th>
                             <th>Description</th>
                             <th>Date of Birth</th>
+                            <th>Edit</th>
                         </tr>
                         <% if(musabaqa){ %>
                                 <% musabaqa.forEach((user)=>{ %>
@@ -59,6 +60,9 @@
                                         <td> <%= user.riwaya %> </td>
                                         <td> <%= user.description %> </td>
                                         <td><%= user.dob %></td>
+                                        <td class="action"><a href="<%= `/app/application/edit/${user._id}` %>">
+                                            <i class="fa fa-edit"></i>
+                                        </a></td>
                                     </tr> 
                                <% }) %>
                             <% } %>
@@ -75,6 +79,7 @@
                             <th>Program</th>
                             <th>Course</th>
                             <th>Date of Birth</th>
+                            <th>Edit</th>
                         </tr>
                         
                         <% if(quiz){ %>
@@ -84,6 +89,9 @@
                                     <td>Hadith Quiz</td>
                                     <td>مِائَة عَامِل</td>
                                     <td><%= user.dob %></td>
+                                    <td class="action"><a href="<%= `/app/hadith/edit/${user._id}` %>">
+                                        <i class="fa fa-edit"></i>
+                                    </a></td>
                                 </tr> 
                            <% }) %>
                         <% } %>

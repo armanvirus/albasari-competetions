@@ -177,7 +177,15 @@ table {
     /* font-size: 10px; */
     width: 150px;
 }
-
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.action a {
+    color: var(--main-green);
+}
 
 
 
