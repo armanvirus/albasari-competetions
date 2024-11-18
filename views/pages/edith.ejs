@@ -1,0 +1,97 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/application.css">
+<link rel="icon" href="/public/img/Muslim.jpg">
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+        <main class="main">
+            <div class="main_inner">
+                <div class="items_container">
+                <h3>Quick Actions</h3>
+                <div class="dashboard" id="dashboard">
+                <div class="dashboard_top">
+                    <a href="/app/document" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <div class="detail">
+                            <p>View Students List</p>
+                        </div>
+                    </a>
+                    <a href="/app/application" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-cloud"></i></div>
+                        <div class="detail">
+                            <p>Musabaqah Application</p>
+                        </div>
+                    </a>
+                    <a href="/app/payment" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="detail">
+                            <p>Make Payment</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="dashboard_bottom"></div>
+                </div>
+                <!-- applications section -->
+                 <div class="applications" id="applications">
+
+                 </div>
+                </div>
+            </div>
+            <div class="whole_container">
+                <div class="dula">
+                    <h2 style="margin-left: -10rem;">Fill the form below to edit student (Musabaqah Applicant).</h2>
+                    <div>
+                        <% if(error){ %>
+                            <%- include('../partials/message') %>
+                                <% } %>
+                                    <form action='/app/quiz' method="post" id="apply_form">
+                                        <div>
+                                            <div class="left_part">
+                                                <select type="text" name="program" id="program_iput" disabled>
+                                                    <option value="Select Program">Musabaqah</option>
+                                                    <!-- <option value="quiz">Hadeeth Quiz</option> -->
+                                                </select>
+                            
+                                            </div>
+                                            <div class="left_part" >
+                                                <input type="text" name="name" id="name" placeholder="Candidate Name">
+                                                <input type="date" name="dob" id="dob" placeholder="date">
+
+                                            </div>
+                                        </div>
+                                        <div class="submission">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
+                                            <input type="submit" value="Add Student">
+                                        </div>
+                                    </form>
+                    </div>
+                </div>
+                <div class="bg">
+                    <!-- <img src="./img/form_bg.png" alt="aaaaaaaaaa"> -->
+                </div>
+            </div>
+              
+        </main>
+        <%- include('../partials/hamburger.ejs') %>
+    </div>
+    </div>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            // Toggle the menu open/close
+            document.querySelector('.main_nav').classList.toggle('open');
+            
+            // Get the program dropdown and add a change event listener
+            const program = document.getElementById('program_iput');
+            
+            // Add event listener for change on the program dropdown
+            program.addEventListener('change', (e) => {
+                console.log(e.target.value);  // Fix the typo: 'console' not 'coonsole'
+            });
+    
+            // Log the initial value of the program dropdown when the hamburger is clicked
+            console.log('The program:', program.value);
+        });
+    </script>
+    

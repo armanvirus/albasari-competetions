@@ -1,0 +1,119 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/application.css">
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+        <main class="main">
+            <div class="main_inner">
+                <div class="items_container">
+                <h3>Quick Actions</h3>
+                <div class="dashboard" id="dashboard">
+                <div class="dashboard_top">
+                    <a href="/app/document" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-users"></i></div>
+                        <div class="detail">
+                            <p>View Students List</p>
+                        </div>
+                    </a>
+                    <a href="/app/Hadith" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-cloud"></i></div>
+                        <div class="detail">
+                            <p>Hadith Quiz Application</p>
+                        </div>
+                    </a>
+                    <a href="/app/payment" class="dashboard_card">
+                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="detail">
+                            <p>Make Payment</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="dashboard_bottom"></div>
+                </div>
+                <!-- applications section -->
+                 <div class="applications" id="applications">
+
+                 </div>
+                </div>
+            </div>
+            <div class="whole_container">
+                <div class="dula">
+                    <h2 style="margin-left: -10rem;">Fill the form below to edit student (Musabaqah Applicant).</h2>
+                    <div>
+                        <% if(error){ %>
+                            <%- include('../partials/message') %>
+                                <% } %>
+                                    <form action='/app/application/' method="post" id="apply_form">
+                                        <div>
+                                            <div class="left_part">
+                                                <select type="text" value="<%= student._id %>" name="program" id="program_iput" disabled>
+                                                    <option value="Select Program">Musabaqah</option>
+                                                    <!-- <option value="quiz">Hadeeth Quiz</option> -->
+                                                </select>
+                                                <select value="<%= student.category %>" type="text" name="category" id="category_iput">
+                                                    <option value="1hizb">1 Hizb</option>
+                                                    <option value="3hizb">3 Hizb</option>
+                                                    <option value="5hizb">5 Hizb</option>
+                                                    <option value="10hizb">10 Hizb</option>
+                                                    <option value="20hizb">20 Hizb</option>
+                                                    <option value="40hizb">40 Hizb</option>
+                                                    <option value="60hizb">60 Hizb</option>
+                                                </select>
+                                            </div>
+                                            <div class="left_part">
+                                                <input type="text" value="<%= student.name %>" name="name" id="name" placeholder="Candidate Name">
+                                                <input type="date" value="<%= student.dob %>"name="dob" id="dob" placeholder="date">
+
+                                            </div>
+                                            <div class="left_part">
+                                                <input type="text" value="<%= student.riwaya %>" name="riwaya" id="riwaya" placeholder="Riwaya">
+                                                <input type="text" value="<%= student.description %>" name="description" id="description" placeholder="Description">
+
+                                            </div>
+                                        </div>
+                                        <div class="submission">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.?</p>
+                                            <input type="submit" value="Update Student">
+                                        </div>
+                                    </form>
+                    </div>
+                </div>
+                <div class="bg">
+                    <!-- <img src="./img/form_bg.png" alt="aaaaaaaaaa"> -->
+                </div>
+            </div>
+              
+        </main>
+        <%- include('../partials/hamburger.ejs') %>
+    </div>
+    </div>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Toggle the menu open/close
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main_nav');
+    
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    mainNav.classList.toggle('open');
+                });
+            }
+    
+            // Get the program input element
+            const program = document.getElementById('program_iput');
+    
+            // Check if the element exists before adding an event listener
+            if (program) {
+                // Add event listener for change on the program dropdown
+                program.addEventListener('change', (e) => {
+                    console.log(e.target.value);
+                });
+    
+                // Log the initial value of the program input
+                console.log('The program:', program.value);
+            }
+        });
+    </script>
+    

@@ -86,4 +86,12 @@ module.exports = {
             // res.json({status:401, msg:'participant added successfully'})
             res.render('pages/hadith', {error:true, msg:'participant added successfully'})
     },
+    editApplication: async(req,res)=> {
+        const id = req.params.id;
+        const student = await musabaqaModel.findById(id)
+        if(!student)
+            return res.redirect('/app/document')
+        res.render('pages/edit',{error:false, msg:'', student}
+
+        )}
 }
