@@ -145,5 +145,8 @@ module.exports = {
                 return res.render('pages/document', {error:true, msg:`unable to edit participant`, musabaqa, quiz})
                 res.render('pages/document', 
                 {error:true, msg:`participant successfully updated`,musabaqa, quiz })
+        },
+        pay:(req,res)=>{
+            res.send("hi payment")
         }
 }
