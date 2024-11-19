@@ -45,10 +45,10 @@
                         <% if(error){ %>
                             <%- include('../partials/message') %>
                                 <% } %>
-                                    <form action='/app/application/edit' method="post" id="apply_form">
+                                    <form action='/app/application/edit/<%= student._id %>' method="post" id="apply_form">
                                         <div>
                                             <div class="left_part">
-                                                <select type="text" value="<%= student._id %>" name="program" id="program_iput" disabled>
+                                                <select type="text" value="<%= student._id %>" name="id" id="program_iput" disabled>
                                                     <option value="Select Program">Musabaqah</option>
                                                     <!-- <option value="quiz">Hadeeth Quiz</option> -->
                                                 </select>

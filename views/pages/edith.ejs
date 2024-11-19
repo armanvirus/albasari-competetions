@@ -46,7 +46,7 @@
                         <% if(error){ %>
                             <%- include('../partials/message') %>
                                 <% } %>
-                                    <form action='/app/quiz' method="post" id="apply_form">
+                                    <form action='/app/application/edith/<%= student._id %>' method="post" id="apply_form">
                                         <div>
                                             <div class="left_part">
                                                 <select type="text" name="program" id="program_iput" disabled>
@@ -56,8 +56,8 @@
                             
                                             </div>
                                             <div class="left_part" >
-                                                <input type="text" name="name" id="name" placeholder="Candidate Name">
-                                                <input type="date" name="dob" id="dob" placeholder="date">
+                                                <input type="text" value="<%= student.name %>" name="name" id="name" placeholder="Candidate Name">
+                                                <input type="date" value="<%= student.dob %>"name="dob" id="dob" placeholder="date">
 
                                             </div>
                                         </div>

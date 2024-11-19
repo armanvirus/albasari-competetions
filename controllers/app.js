@@ -65,7 +65,7 @@ module.exports = {
         const quiz = await quizModel.find({school:req.user._id, batch})
         // res.json({status:200, participants:musabaqa})
         // console.log(musabaqa,quiz)
-        res.render('pages/document',{musabaqa,quiz})
+        res.render('pages/document',{musabaqa,quiz, error:false})
     },
     quiz:async(req,res)=>{
         const {name,dob} = req.body;
@@ -87,25 +87,35 @@ module.exports = {
             res.render('pages/hadith', {error:true, msg:'participant added successfully'})
     },
     editApplication: async(req,res)=> {
+        const musabaqa =await musabaqaModel.find({school:req.user._id, batch}).sort({hizb:1})
+            const quiz = await quizModel.find({school:req.user._id, batch})
         const id = req.params.id;
         const student = await musabaqaModel.findById(id)
         if(!student)
-            return res.redirect('/app/document')
+            return res.render('/app/document',{error:true, msg:"something went wrong", musabaqa, quiz} )
         res.render('pages/edit',{error:false, msg:'', student}
 
         )},
         edithApplication: async(req,res)=> {
+            const musabaqa =await musabaqaModel.find({school:req.user._id, batch}).sort({hizb:1})
+            const quiz = await quizModel.find({school:req.user._id, batch})
         const id = req.params.id;
         const student = await quizModel.findById(id)
         if(!student)
-            return res.redirect('/app/document')
+            return res.render('/app/document',{error:true, msg:"something went wrong", musabaqa, quiz} )
         res.render('pages/edith',{error:false, msg:'', student}
 
         )},
         edit:async(req,res)=>{
-            const {name,dob,riwaya,description, category, id} = req.body;
+            const musabaqa =await musabaqaModel.find({school:req.user._id, batch}).sort({hizb:1})
+            const quiz = await quizModel.find({school:req.user._id, batch})
+            const {name,dob,riwaya,description, category} = req.body;
+            const id = req.params.id
             if(!name || !dob || !riwaya || !description || !category|| !id)
-                return res.render('pages/edit', {error:true, msg:`unable to edit participant`})
+                return res.render('pages/document', 
+            {error:true, msg:`unable to edit participant`,
+            musabaqa, quiz
+            })
             const updatedUser = await musabaqaModel.findByIdAndUpdate(
                 id,
                 { $set: { name,dob,riwaya,description, category} },
@@ -113,21 +123,27 @@ module.exports = {
               );
 
               if(!updatedUser)
-                return res.render('pages/edit', {error:true, msg:`unable to edit participant`})
-              return res.render('pages/edit', {error:true, msg:`participant successfully updated`})
+                return res.render('pages/document', 
+               {error:true, msg:`unable to edit participant`, musabaqa, quiz})
+                res.render('pages/document', {error:true, msg:`participant successfully updated`,
+                musabaqa, quiz})
         },
         edith:async(req,res)=>{
-            const {name,dob, id} = req.body;
+            const musabaqa =await musabaqaModel.find({school:req.user._id, batch}).sort({hizb:1})
+            const quiz = await quizModel.find({school:req.user._id, batch})
+            const {name,dob} = req.body;
+            const id = req.params.id
             if(!name || !dob || !id)
-                return res.render('pages/edith', {error:true, msg:`unable to edit participant`})
+                return res.render('pages/document', {error:true, msg:`unable to edit participant`, musabaqa, quiz})
             const updatedUser = await quizModel.findByIdAndUpdate(
                 id,
-                { $set: { name,dob,riwaya,description, category} },
+                { $set: { name,dob} },
                 { new: true }
               );
 
               if(!updatedUser)
-                return res.render('pages/edith', {error:true, msg:`unable to edit participant`})
-              return res.render('pages/edith', {error:true, msg:`participant successfully updated`})
+                return res.render('pages/document', {error:true, msg:`unable to edit participant`, musabaqa, quiz})
+                res.render('pages/document', 
+                {error:true, msg:`participant successfully updated`,musabaqa, quiz })
         }
 }
