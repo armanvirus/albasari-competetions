@@ -15,6 +15,8 @@ router.get('/profile', isAuthenticated, (req,res)=> res.render('pages/profile',{
 router.post("/application", isAuthenticated, application)
 router.get("/document",isAuthenticated, participants)
 router.post("/quiz",isAuthenticated, quiz)
+router.post('/application/edit',isAuthenticated, edit)
+router.post('/application/edith',isAuthenticated, edith)
 
 
 
