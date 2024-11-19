@@ -13,7 +13,7 @@ router.get('/hadith/edit/:id',isAuthenticated, (req,res)=> res.render('pages/edi
 // router.get('/document', isAuthenticated, (req,res)=> res.render('pages/document',{error:false, msg:''})) 
 router.get('/profile', isAuthenticated, (req,res)=> res.render('pages/profile',{error:false, msg:'', user:req.user}))
 router.post("/application", isAuthenticated, application)
-router.post("/application/edit", isAuthenticated, edit)
+// router.post("/application/edit", isAuthenticated, edit)
 router.get("/document",isAuthenticated, participants)
 router.post("/quiz",isAuthenticated, quiz)
 
