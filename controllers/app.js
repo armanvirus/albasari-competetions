@@ -93,5 +93,41 @@ module.exports = {
             return res.redirect('/app/document')
         res.render('pages/edit',{error:false, msg:'', student}
 
-        )}
+        )},
+        edithApplication: async(req,res)=> {
+        const id = req.params.id;
+        const student = await quizModel.findById(id)
+        if(!student)
+            return res.redirect('/app/document')
+        res.render('pages/edith',{error:false, msg:'', student}
+
+        )},
+        edit:async(req,res)=>{
+            const {name,dob,riwaya,description, category, id} = req.body;
+            if(!name || !dob || !riwaya || !description || !category|| !id)
+                return res.render('pages/edit', {error:true, msg:`unable to edit participant`})
+            const updatedUser = await musabaqaModel.findByIdAndUpdate(
+                id,
+                { $set: { name,dob,riwaya,description, category} },
+                { new: true }
+              );
+
+              if(!updatedUser)
+                return res.render('pages/edit', {error:true, msg:`unable to edit participant`})
+              return res.render('pages/edit', {error:true, msg:`participant successfully updated`})
+        },
+        edith:async(req,res)=>{
+            const {name,dob, id} = req.body;
+            if(!name || !dob || !id)
+                return res.render('pages/edith', {error:true, msg:`unable to edit participant`})
+            const updatedUser = await quizModel.findByIdAndUpdate(
+                id,
+                { $set: { name,dob,riwaya,description, category} },
+                { new: true }
+              );
+
+              if(!updatedUser)
+                return res.render('pages/edith', {error:true, msg:`unable to edit participant`})
+              return res.render('pages/edith', {error:true, msg:`participant successfully updated`})
+        }
 }
