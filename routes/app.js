@@ -1,9 +1,6 @@
 const express = require("express")
 const router = express.Router();
 
-const {dashboard,application, participants,quiz,editApplication, edit} = require('../controllers/app')
-
-
 const {isAuthenticated} = require('../middlewares/authenticator')
 
 // define the routes
