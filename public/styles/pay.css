@@ -150,9 +150,13 @@ ul li {
 
 .dashboard_bottom {
     padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
 }
 .dashboard_bottom .instruction {
-    
+    /* width: 650px; */
     
 }
 .dashboard_bottom .instruction p {
@@ -181,7 +185,7 @@ ul li {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: .5rem;
     margin-bottom: 2rem;
 }
 
@@ -193,9 +197,6 @@ ul li {
     cursor: pointer;
     /* margin-top: 1rem; */
     color: #fff;
-  }
-  .btn_container .pay-btn:last-child {
-    display: none;
   }
   .file-upload {
     display: flex;
@@ -221,8 +222,8 @@ ul li {
     font-size: 14px;
     color: #555;
     border: 1px solid var(--main-green);
-    padding: 10px 20px;
-    padding-right: 12rem !important;
+    padding: 1rem;
+    padding-right: 10rem !important;
     margin-left: -1rem;
     border-radius: .5rem;
 
