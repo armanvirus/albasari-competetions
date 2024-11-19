@@ -1,0 +1,96 @@
+<!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles/pay.css">
+    <!-- paystack cdn -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+    <div class="container">
+        <div>
+            <%- include('../partials/nav') %>
+           
+            <main class="main">
+                <div class="main_inner">
+                    <div class="items_container">
+                        <h3>Overview</h3>
+                        <div class="dashboard" id="dashboard">
+                            <div class="dashboard_top">
+                                <a href="/app/document" class="dashboard_card" style="cursor: pointer;">
+                                    <div class="icon"><i class="fa fa-edit"></i></div>
+                                    <div class="detail">
+                                        <p>Edit Application</p>
+                                    </div>
+                                </a>
+                                <div class="dashboard_card" style="cursor: pointer;">
+                                    <div class="icon"><i class="fa fa-arrow-down"></i></div>
+                                    <div class="detail">
+                                        <p>Download Invoice</p>
+                                    </div>
+                                </div>
+                                <div class="dashboard_card">
+                                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
+                                    <div class="detail">
+                                        <h1>Pending</h1>
+                                        <p>payment Status</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard_bottom">
+                                <div class="instruction">
+                                    <h3 style="font-weight: 500;">Hi school</h3>
+                                    <p>Kindly Make a payment of N 5,000 to the below bank details and
+                                        upload your receipt here to be considered registered school for
+                                        this batch and be allowed to participate.
+                                    </p>
+                                    <p>
+                                        after successful confirmation of your payment by the admin
+                                        you can download your payment receipt here <br> <i>Thank You</i>
+                                    </p>
+                                </div>
+                                <div class="account_details">
+                                    <p class="account">
+                                        ACCOUNT NUMBER: 6474530716
+                                    </p>
+                                    <p class="account_name">
+                                        ACCOUNT NAME: Committee for Qur'anic Competition (Owned by Abdussamad Umar)
+                                    </p>
+                                    <p class="bank_name">
+                                        BANK NAME: Moniepoint
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            <div class="upload">
+                                <div class="file-upload">
+                                    <input type="file" id="fileInput" hidden />
+                                    <label for="fileInput" class="custom-file-label">Choose File</label>
+                                    <span id="fileName">No file chosen</span>
+                                </div>
+                                <div class="pay_btn">Upload Receipt</div>
+                            </div>
+                        </div>
+
+            </main>
+            <%- include('../partials/hamburger.ejs') %>
+        </div>
+    </div>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Toggle the menu open/close
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main_nav');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    mainNav.classList.toggle('open');
+                });
+            }
+        });
+        const fileInput = document.getElementById("fileInput");
+    const fileName = document.getElementById("fileName");
+
+    fileInput.addEventListener("change", () => {
+        fileName.textContent = fileInput.files[0]?.name || "No file chosen";
+    });
+
+    </script>
