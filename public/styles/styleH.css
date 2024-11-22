@@ -107,10 +107,12 @@ ul{
     display: flex;
     z-index: 5;
     color: var(--color-white);
+    margin-top: -2rem;
+    
 }
 .hero-text{
-    width:500px;
-    text-align:left;
+    width:700px;
+    
 }
 .entry-head{
     margin-bottom: 1rem;
@@ -118,7 +120,8 @@ ul{
     font-family:Georgia;
     font-size: 20px;
     color: #41f1b6;
-    font-style: italic;
+    /* font-style: italic; */
+    text-align:center;
 }
 .entry-head span{
     font-weight: 600;
@@ -127,11 +130,21 @@ ul{
     font-family:roboto;
     color: #fff;
 }
+.entry-head .arab {
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-family:Georgia;
+    font-size: 30px;
+    color: #41f1b6;
+    text-align:center;
+}
 .hero-text p{
     color: #fff;
-    text-align: left;
+    /* text-align: left; */
+    text-align: center;
     font-family: montserrat;
     line-height: 2;
+    font-size: 20px;
 }
 
 .decos{
@@ -139,11 +152,13 @@ ul{
     gap:2px;
     align-items: center;
     margin-top:5px;
+    
 }
 .decos div:first-child{
     height:6px;
     width: 50px;
     background:#0cca4a;
+    border-radius: 1rem;
 }
 .decos div:nth-child(2){
     height:10px;
@@ -344,9 +359,22 @@ margin-top: 30px;
 }
 
 .target{
-    width: 350px;
+    width: 1000px;
     padding: 2rem 0;
     text-align: center;
+}
+
+.target:hover {
+    /* background: red; */
+    border-radius: 1rem;
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform .5s ease-in-out;
+    box-shadow: var(--box-shadow-div);
+}
+
+.target p {
+    line-height: 2;
 }
 
 .row-1, .row-2,.row-3{

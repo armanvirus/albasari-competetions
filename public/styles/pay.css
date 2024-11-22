@@ -100,86 +100,135 @@ ul li {
     align-items: flex-start;
     /* flex-direction: column; */
 }
-.main .invoice_container {
-    background: #fff;
-    padding: 20px 50px;
-    border-radius: 10px;
+.main .main_inner {
+    margin-top: 5%;
 }
-.main_header {
+.main_inner .dashboard {
+    margin-top: 15px;
+}
+.main_inner .dashboard .dashboard_top {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* width: 70%; */
+    gap: 10px;
+    justify-content: flex-start;
 }
-.logo img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-}
-.main_header .header_content {
-    text-align: center;
-    margin-top: -30px;
-}
-.main_header .header_content h1 {
-    color: var(--color-secondary);
-    font-weight: 600;
-}
-.main_header .header_content .head_contact {
-    background: var(--main-green);
-    margin: 10px 0 0 150px;
-    /* padding: 5px 0; */
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 10px;
-    width: 200px;
+.main_inner .dashboard .dashboard_top .dashboard_card {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    gap: 20px;
+    background: var(--main-green);
+    border-radius: 5px;
+    padding: 10px 30px;
+    color: #fff;
 }
-.tag {
-    margin: 10px 0;
-    font-weight: 500;
+.main_inner .dashboard .dashboard_top .dashboard_card .icon i{
+    font-size: 40px;
 }
-.head_contact > p {
-    margin: 10px 0;
+.main_inner .dashboard .dashboard_top .dashboard_card:nth-child(2){
+    background: var(--color-error);
 }
-table {
-    margin: 2rem 0;
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  th {
-    width: 180px;
-  }
-  .btn_container {
+.main_inner .dashboard .dashboard_top .dashboard_card .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 10px 0 0 0;
+    font-size: 18px;
+    
+}
+.main_inner .dashboard .dashboard_top .dashboard_card .detail p {
+    /* font-size: 10px; */
+    width: 150px;
+}
+  /* .btn_container {
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     flex-direction: column;
-  }
-  .btn_container .pay-btn {
-    background: var(--main-green);
-    padding: 1rem 5rem;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    cursor: pointer;
+  } */
+
+.dashboard_bottom {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
     margin-top: 1rem;
+    gap: 1rem;
+}
+.dashboard_bottom .instruction {
+    /* width: 650px; */
+    
+}
+.dashboard_bottom .instruction p {
+    margin: 10px;
+    line-height: 1.5;
+    color: #333;
+    font-size: 20px;
+    
+}
+.dashboard_bottom .account_details {
+    margin: 30px 0;
+}
+.dashboard_bottom .account_details .account {
+    user-select: all;
+}
+.dashboard_bottom .account_details .account,
+.dashboard_bottom  .account_details .account_name,
+.dashboard_bottom  .account_details .bank_name {
+    margin: 1rem 0;
+    font-size: 20px;
+    color: #333;
+    font-style: italic;
+
+}
+.upload {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5rem;
+    margin-bottom: 2rem;
+}
+
+.pay_btn {
+    background: var(--main-green);
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: .5rem;
+    cursor: pointer;
+    /* margin-top: 1rem; */
+    color: #fff;
+  }
+  .file-upload {
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
   }
   
+  .custom-file-label {
+    padding: 10px 20px;
+    background-color: var(--main-green);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .custom-file-label:hover {
+    background-color: #fff;
+    color: var(--main-green);
+  }
+  
+  #fileName {
+    font-size: 14px;
+    color: #555;
+    border: 1px solid var(--main-green);
+    padding: 1rem;
+    padding-right: 10rem !important;
+    margin-left: -1rem;
+    border-radius: .5rem;
+
+    
+  }
 
 /*   //cluster password: vyJHw0BMR3eecHUL  */
 
@@ -281,6 +330,15 @@ table {
     }
     .submission input{
         width: 98%;
+    }
+    .upload {
+        flex-direction: column;
+    }
+    .upload .pay_btn {
+        display: flex;
+        width: 98vw;
+        align-items: center;
+        justify-content: center;
     }
 }
 

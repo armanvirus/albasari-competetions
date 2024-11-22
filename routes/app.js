@@ -7,6 +7,7 @@ const {isAuthenticated} = require('../middlewares/authenticator')
 router.get('/dashboard', isAuthenticated, dashboard);
 router.get('/application', isAuthenticated, (req,res)=> res.render('pages/application',{error:false, msg:''})) 
 router.get('/hadith', isAuthenticated, (req,res)=> res.render('pages/hadith',{error:false, msg:''})) 
+router.get('/pay',isAuthenticated, (req,res)=> res.render('pages/pay',{error:false, msg:''})) 
 router.get('/payment',isAuthenticated, (req,res)=> res.render('pages/payment',{error:false, msg:''})) 
 router.get('/application/edit/:id',isAuthenticated, editApplication) 
 router.get('/hadith/edit/:id',isAuthenticated, edithApplication) 

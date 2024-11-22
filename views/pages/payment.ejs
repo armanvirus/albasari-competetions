@@ -2,8 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/payment.css">
 <!-- paystack cdn -->
-<script src="https://js.paystack.co/v1/inline.js"></script>
-
+<!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
 
 <div class="container">
     <div>
@@ -45,14 +44,12 @@
                         </tr>
                     </table>
                     <div class="btn_container">
-                        <div class="pay-btn" onclick="payWithPaystack()">Pay Now</div>
-                        <a class="pay-btn" download="receipt.pdf">Print Receipt</a>
+                        <div class="pay-btn" onclick="printReceipt()">Print Receipt</div>
                     </div>
                 </div>
                 
             </main>
             <%- include('../partials/hamburger.ejs') %>
-    </div>
 </div>
 <script defer>
     document.addEventListener('DOMContentLoaded', () => {
