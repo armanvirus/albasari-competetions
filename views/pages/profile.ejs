@@ -25,14 +25,14 @@
                                     <i class="fa fa-university"></i>
                                     <span>School</span>
                                 </div>
-                                <p>Albasary Academy</p>
+                                <p> <%= user.name %></p>
                             </div>
                             <div class="detail_contact">
                                 <div class="icons">
                                     <i class="fa fa-envelope"></i>
                                     <span>Email</span>
                                 </div>
-                                <p>school@example.com</p>
+                                <p><%= user.email %></p>
                             </div>
                            </div>
                             <div>
@@ -41,14 +41,14 @@
                                         <i class="fa fa-phone-square"></i>
                                         <span>Contact</span>
                                     </div>
-                                    <p>0903 2509 094</p>
+                                    <p><%= user.phone %></p>
                                 </div>
                                 <div class="detail_contact">
                                     <div class="icons">
                                         <i class="fa fa-home"></i>
                                         <span>Address</span>
                                     </div>
-                                    <p>Near District Head, Bolari<br> Gombe State</p>
+                                    <p><%= user.address %></p>
                                 </div>
                             </div>
                             <div class="edit-btn" onclick="editProfile()">
