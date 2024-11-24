@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    /* --color-primary:#066A38;
+    --color-secondary:#528540; */
+    --default-font: ubuntu;
+    --main-shadow: 1px 1px 3px #bebaba;
+    --color-error: rgb(240, 121, 121);
+    --color-warning: rgb(249, 237, 101);
+    --main-bg: rgba(191,191,191,0.9);
+    --main-green: rgb(6, 187, 118);
+
+}
+body {
+    background: var(--main-bg);
+    font-family: GraphikBold;
+}
+a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--main-green);
+}
+
+ul li {
+    display: inline;
+    margin: 0 .5rem;
+    list-style-type: none;
+}
+
+.main_container {
+    width: 90vw;
+    /* background: red; */
+    margin-inline: auto;
+}
+header {
+    /* background: green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .logo {
+  
+}
+header .logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+header .nav_start {
+    display: flex;
+}
+.upper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.upper .upper_top {}
+.upper .upper_top .left {
+    background: #fff;
+}
+
+
+
+
+
+/* responsive design */
+@media (max-width: 768px) {
+   
+
+
+
+
+
+}
+
+
+
+/* cluster password: vyJHw0BMR3eecHUL  */

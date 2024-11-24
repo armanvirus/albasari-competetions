@@ -1,6 +1,8 @@
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/document.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 
     <div class="container">
         <div>
@@ -134,5 +136,22 @@
                 console.log('The program:', program.value);
             }
         });
+
+        async function generatePDF() {
+            // Import jsPDF from the library
+            const { jsPDF } = window.jspdf;
+
+            // Create a new PDF instance
+            const doc = new jsPDF();
+
+            // Get content from the textarea
+            const content = document.getElementById('content').value;
+
+            // Add content to the PDF
+            doc.text(content, 10, 10);
+
+            // Save the PDF (auto download)
+            doc.save("generated.pdf");
+        }
     </script>
     
