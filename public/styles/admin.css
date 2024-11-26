@@ -23,13 +23,20 @@ a {
     text-decoration: none;
     font-size: 18px;
     font-weight: 300;
-    color: var(--main-green);
+    color: #000;
 }
 
 ul li {
     display: inline;
     margin: 0 .5rem;
     list-style-type: none;
+}
+
+.dashed {
+    color: #999;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* font-size: 18px; */
 }
 
 .main_container {
@@ -42,6 +49,18 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 4.5rem;
+    position: fixed;
+    /* background: var(--main-green); */
+    top: -0.8rem;
+    left: 0;
+    right: 0;
+}
+header .logo_start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
 }
 header .logo {
   
@@ -55,26 +74,155 @@ header .nav_start {
     display: flex;
 }
 .upper {
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.upper .upper_top {}
-.upper .upper_top .left {
+.upper .upper_top {
+    display: flex;
+    /* align-items: center; */
+    gap: 1rem;
+}
+.upper .upper_top > .left {
     background: #fff;
+    padding: 2rem;
+    display: flex;
+    gap: 30%;
+    border-radius: .5rem;
+    width: 60%;
+}
+.upper .upper_top > .left .in_side{}
+.upper .upper_top > .left .in_side .in_up p{
+    margin: 10px 0;
+}
+.upper .upper_top > .left .off_side  p{
+    margin: 10px 0;
+}
+.upper .upper_top > .left .off_side  .amount{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upper .upper_top > .left .in_side .in_up span i{
+    margin-top: 10px;
+    color: #888;
+}
+.upper .upper_top > .left .in_side .in_up .spanned{
+    display: flex;
+    gap: .3rem;
+}
+.upper .upper_top > .left .in_side .in_down{
+   margin-top: 10px;
+   margin-bottom: -10px;
+   display: flex;
+   gap: 10px;
+}
+.upper .upper_top > .left .in_side .in_down button{
+   background: var(--main-green);
+   color: #fff;
+   border: none;
+   outline: none;
+   padding: 1rem;
+   border-radius: .5rem;
+   cursor: pointer;
 }
 
 
 
+.upper .upper_top .right {
+    background: var(--main-green);
+    color: #fff;
+    padding: 1.7rem;
+    display: flex;
+    gap: ;
+    width: 40%;
+    border-radius: .5rem;
 
+}
+.upper .upper_top .right .left .up {
+    margin-bottom: 2rem;
+}
+.upper .upper_top .right .left .up h2 {
+    margin-bottom: 10px;
+}
+.upper .upper_top .right .left .up p {
+    color: #f6ecec;
+    max-width: 350px;
+
+}
+.upper .upper_top .right .left .btn {
+    background: #fff;
+    color: #888;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+/* upper cards */
+.upper-cards {
+    display: flex;
+    align-items: center;
+    width: auto;
+    /* background: #777; */
+    margin: 1rem 0;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.upper-cards .card {
+    background: #fff;
+    border-radius: .5rem;
+}
+.upper-cards .card .card_container {
+    display: flex;
+    padding: 18px;
+    gap: 4.5rem;
+}
+.upper-cards .card .card_container .card_left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.upper-cards .card .card_container .card_left p{
+    margin-top: .2rem;
+}
+.upper-cards .card .card_container .card_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+.upper-cards .card .card_container .card_right  {
+    /* margin-top: 12rem; */
+}
+
+
+/* upper cards ends */
+
+/* content area starts */
+.bottom .content_area {
+    background: #fff;
+    border-radius: .5rem;
+    width: 65%;
+}
+
+/* student area starts */
+.student_area .students .student {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.student_area .students .student {
+    border-bottom: 1px solid #888;
+}
+/* student area ends */
+
+/* content area ends */
 
 /* responsive design */
 @media (max-width: 768px) {
-   
-
-
-
-
 
 }
 
