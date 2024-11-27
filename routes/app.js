@@ -8,8 +8,22 @@ router.get('/dashboard', isAuthenticated, dashboard);
 router.get('/application', isAuthenticated, (req, res) => res.render('pages/application', { error: false, msg: '' }))
 router.get('/hadith', isAuthenticated, (req, res) => res.render('pages/hadith', { error: false, msg: '' }))
 router.get('/pay', isAuthenticated, (req, res) => res.render('pages/pay', { error: false, msg: '' }))
-// admin route
+
+
+// admin routes
 router.get('/admin', (req, res) => res.render('pages/admin', { error: false, msg: '' }))
+router.get('/admin/schools', (req, res) => res.render('pages/admin_school', { error: false, msg: '' }))
+router.get('/admin/applications', (req, res) => res.render('pages/admin_app', { error: false, msg: '' }))
+router.get('/admin/payment', (req, res) => res.render('pages/admin_pay', { error: false, msg: '' }))
+
+
+
+
+
+
+
+
+
 router.get('/payment', isAuthenticated, (req, res) => res.render('pages/payment', { error: false, msg: '' }))
 router.get('/application/edit/:id', isAuthenticated, editApplication)
 router.get('/hadith/edit/:id', isAuthenticated, edithApplication)
