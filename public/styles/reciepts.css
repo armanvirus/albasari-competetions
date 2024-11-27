@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    /* --color-primary:#066A38;
+    --color-secondary:#528540; */
+    --default-font: ubuntu;
+    --main-shadow: 1px 1px 3px #bebaba;
+    --color-error: rgb(240, 121, 121);
+    --color-warning: rgb(249, 237, 101);
+    --main-bg: rgba(191,191,191,0.9);
+    --main-green: rgb(6, 187, 118);
+
+}
+body {
+    background: var(--main-bg);
+    font-family: GraphikBold;
+}
+a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+}
+
+ul li {
+    display: inline;
+    margin: 0 .5rem;
+    list-style-type: none;
+}
+
+.dashed {
+    color: #999;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* font-size: 18px; */
+}
+
+.main_container {
+    width: 90vw;
+    /* background: red; */
+    margin-inline: auto;
+}
+/* header starts */
+header {
+    /* background: green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 4.5rem;
+    position: fixed;
+    /* background: var(--main-green); */
+    top: -0.1rem;
+    left: 0;
+    right: 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+/* adding background to the header on scroll */
+header.scrolled {
+    background: var(--main-bg); 
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
+    color: #fff;
+}
+
+header .logo_start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+header .logo {
+    
+}
+header .logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+header .nav_start {
+    display: flex;
+}
+/* header ends */
+/* main starts */
+main {
+    margin-top: 5rem;
+}
+
+/* left sections start */
+.left_section{}
+.left_section .left_container {
+    /* background-color: #fff; */
+}
+.left_section .left_container .left_content {
+    display: flex;
+}
+.left_section .left_container .left_content .pending {}
+.left_section .left_container .left_content .pending .pending_head {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.left_section .left_container .left_content .pending .pending_head .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.left_section .left_container .left_content .pending .pending_head .logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.left_section .left_container .left_content .pending .pending_head .pending_headings {
+
+}
+.left_section .left_container .left_content .pending .pending_content {
+    padding: 15px 10px;
+    margin-left: 2rem;
+}
+.left_section .left_container .left_content .pending .pending_content .pending_img {
+    width: 200px;
+    border-radius: .5rem;
+
+}
+.left_section .left_container .left_content .pending .pending_content .pending_img img {
+    width: 100%;
+    border-radius: .5rem;
+}
+
+/* left sections ends */
+
+
+/* responsive design */
+@media (max-width: 768px) {
+
+}
+
+
+
+/* cluster password: vyJHw0BMR3eecHUL  */

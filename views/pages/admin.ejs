@@ -3,29 +3,7 @@
 <link rel="stylesheet" href="/styles/admin.css">
 
 <div class="main_container">
-    <header id="main-header">
-       <div class="logo_start">
-        <div class="logo">
-            <img src="/img/basari.png" alt="">
-        </div>
-        <div class="nav_start">
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Schools</a></li>
-                <li><a href="#">Applications</a></li>
-                <li><a href="#">Payments</a></li>
-            </ul>
-        </div>
-       </div>
-        <div class="nav_ends">
-            <ul>
-                <li><a href=""><i class="fa fa-cog"></i></a></li>
-                <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                <li><a href=""><i class="fa fa-bell"></i></a></li>
-                <li><a href=""><i class="fa fa-power-off"></i></a></li>
-            </ul>
-        </div>
-    </header>
+    <%- include('../partials/admin_nav') %>
     <main>
         <div class="upper">
             <div class="upper_top">
@@ -61,7 +39,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur,loremque nisi debitis quaerat unde similique,
                             </p>
                         </div>
-                        <a href="" class="btn">View Receipts</a>
+                        <a href="/app/admin/reciepts" class="btn">View Receipts</a>
                     </div>
                     <div class="right">
                         <i class="fa fa-handshake" style="color: #fff; font-size: 6rem;"></i>
@@ -248,7 +226,7 @@
             </div>
             <div class="sub_area">
                 <div class="sub_container">
-                    <h3>Incoming activities</h3>
+                    <h3 class="dashed">Incoming activities</h3>
                     <div class="sub_content">
                         <div class="sub">
                             <div class="sub_logo">
