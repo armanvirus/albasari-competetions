@@ -221,14 +221,13 @@ main {
 
 /* content area starts */
 .bottom {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 65% 35%;
     gap: .5rem;
 }
 .bottom .content_area {
     background: #fff;
     border-radius: .5rem;
-    width: 65%;
     padding: 20px;
 }
 
@@ -335,12 +334,16 @@ thead {
     background-color: #f4f4f4;
 }
 
-tbody tr:nth-child(odd) {
+tbody tr {
     background-color: #f9f9f9; /* Adds alternating row colors */
 }
 
 tbody tr:hover {
     background-color: #f1f1f1; /* Highlights on hover */
+    transition: all .2s ease-in-out;
+    border-radius: .5rem;
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 th {
@@ -376,7 +379,7 @@ td {
 /* content area ends */
 /* sub area starts */
 .sub_area{
-    width: 45%;
+    /* width: 45%; */
 }
 .sub_area .sub_container {
     background: #fff;
@@ -393,9 +396,10 @@ td {
 }
 .sub_area .sub_container .sub_content .sub:hover {
     background: #f1f1f1;
-    padding: 10px 20px;
+    padding: 10px 2px;
     transition: all .2s ease-in-out;
     border-radius: .5rem;
+    transform: scale(1.02);
 }
 .sub_area .sub_container .sub_content .sub .sub_logo {
     width: 50px;
