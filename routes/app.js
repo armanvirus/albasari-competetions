@@ -11,16 +11,36 @@ router.get('/pay', isAuthenticated, (req, res) => res.render('pages/pay', { erro
 
 
 // admin routes
-router.get('/admin', (req, res) => res.render('pages/admin', { error: false, msg: '' }))
-router.get('/admin/schools', (req, res) => res.render('pages/admin_school', { error: false, msg: '' }))
-router.get('/admin/applications', (req, res) => res.render('pages/admin_app', { error: false, msg: '' }))
-router.get('/admin/payment', (req, res) => res.render('pages/admin_pay', { error: false, msg: '' }))
 
+// Admin Dashboard
+router.get('/admin', (req, res) => {
+    res.render('pages/admin', { error: false, msg: '' });
+});
 
+// Schools Page
+router.get('/admin/schools', (req, res) => {
+    res.render('pages/admin_school', { error: false, msg: '' });
+});
 
+// Receipts Page
+router.get('/admin/reciepts', (req, res) => {
+    res.render('pages/reciepts', { error: false, msg: '' });
+});
 
+// Applications Page
+router.get('/admin/applications', (req, res) => {
+    res.render('pages/admin_app', { error: false, msg: '' });
+});
 
+// Payment Page
+router.get('/admin/payment', (req, res) => {
+    res.render('pages/admin_pay', { error: false, msg: '' });
+});
 
+// Optional: Redirect `/app/app` to `/app/admin`
+router.get('/app', (req, res) => {
+    res.redirect('/app/admin');
+});
 
 
 
