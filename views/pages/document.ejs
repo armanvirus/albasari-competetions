@@ -1,138 +1,166 @@
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/document.css">
+<!-- pdfJs cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    <div class="container">
-        <div>
-            <%- include('../partials/nav') %>
-        <main class="main">
-            <div class="main_inner">
-                <div class="items_container">
-                <h3>Quick Actions</h3>
-                <div class="dashboard" id="dashboard">
-                <div class="dashboard_top">
-                    <a href="/application/list" class="dashboard_card">
-                        <div class="icon"><i class="fa fa-download"></i></div>
-                        <div class="detail">
-                            <p>Musabaqa Students List</p>
-                        </div>
-                    </a>
-                    <a href="/studentList/" class="dashboard_card">
-                        <div class="icon"><i class="fa fa-download"></i></div>
-                        <div class="detail">
-                            <p>Hadith Students List</p>
-                        </div>
-                    </a>
-                    
-                    <a href="/app/payment" class="dashboard_card">
-                        <div class="icon"><i class="fa fa-check"></i></div>
-                        <div class="detail">
-                            <p>Make Payment</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="dashboard_bottom"></div>
-                </div>
-                <!-- applications section -->
-                 <div class="applications" id="applications">
 
-                 </div>
+<div class="container">
+    <div>
+        <%- include('../partials/nav') %>
+            <main class="main">
+                <div class="main_inner">
+                    <div class="items_container">
+                        <h3>Quick Actions</h3>
+                        <div class="dashboard" id="dashboard">
+                            <div class="dashboard_top">
+                                <div href="/application/list" class="dashboard_card" onclick="downloadPDF()">
+                                    <div class="icon"><i class="fa fa-download"></i></div>
+                                    <div class="detail">
+                                        <p>Musabaqa Students List</p>
+                                    </div>
+                                </div>
+                                <a href="/studentList/" class="dashboard_card">
+                                    <div class="icon"><i class="fa fa-download"></i></div>
+                                    <div class="detail">
+                                        <p>Hadith Students List</p>
+                                    </div>
+                                </a>
+
+                                <a href="/app/payment" class="dashboard_card">
+                                    <div class="icon"><i class="fa fa-check"></i></div>
+                                    <div class="detail">
+                                        <p>Make Payment</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="dashboard_bottom"></div>
+                        </div>
+                        <!-- applications section -->
+                        <div class="applications" id="applications">
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-          <div class="main_list">
-            <div class="musabaqa_list">
-                <h3 style="margin-top: 1.5rem;">Musabaqah Participants</h3>
-                <% if(error){ %>
-                    <%- include('../partials/message') %>
-                        <% } %>
-                <div class="table">
-                    <table border="1" cellpadding="2" name="musabaqa_list">
-                        <tr>
-                            <th>Student Name</th>
-                            <th>Category</th>
-                            <th>Riwaya</th>
-                            <th>Description</th>
-                            <th>Date of Birth</th>
-                            <th>Edit</th>
-                        </tr>
-                        <% if(musabaqa){ %>
-                                <% musabaqa.forEach((user)=>{ %>
-                                    <tr>
-                                        <td class="name"> <%= user.name %> </td>
-                                        <td><%= user.category %></td>
-                                        <td> <%= user.riwaya %> </td>
-                                        <td> <%= user.description %> </td>
-                                        <td><%= user.dob %></td>
-                                        <td class="action"><a href="<%= `/app/application/edit/${user._id}` %>">
-                                            <i class="fa fa-edit"></i>
-                                        </a></td>
-                                    </tr> 
-                               <% }) %>
-                            <% } %>
-                       
-                    </table>
-                </div>
-            </div>
-            <div class="hadith_list">
-                <h3>Hadith Participants</h3>
-                <div class="table">
-                    <table border="1" cellpadding="2" name="musabaqa_list">
-                        <tr>
-                            <th>Student Name</th>
-                            <th>Program</th>
-                            <th>Course</th>
-                            <th>Date of Birth</th>
-                            <th>Edit</th>
-                        </tr>
-                        
-                        <% if(quiz){ %>
-                            <% quiz.forEach((user)=>{ %>
+                <div class="main_list">
+                    <div class="musabaqa_list">
+                        <h3 style="margin-top: 1.5rem;">Musabaqah Participants</h3>
+                        <% if(error){ %>
+                            <%- include('../partials/message') %>
+                                <% } %>
+                                    <div class="table">
+                                        <table border="1" cellpadding="2" name="musabaqa_list">
+                                            <tr>
+                                                <th>Student Name</th>
+                                                <th>Category</th>
+                                                <th>Riwaya</th>
+                                                <th>Description</th>
+                                                <th>Date of Birth</th>
+                                                <th>Edit</th>
+                                            </tr>
+                                            <% if(musabaqa){ %>
+                                                <% musabaqa.forEach((user)=>{ %>
+                                                    <tr>
+                                                        <td class="name">
+                                                            <%= user.name %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.category %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.riwaya %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.description %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.dob %>
+                                                        </td>
+                                                        <td class="action"><a
+                                                                href="<%= `/app/application/edit/${user._id}` %>">
+                                                                <i class="fa fa-edit"></i>
+                                                            </a></td>
+                                                    </tr>
+                                                    <% }) %>
+                                                        <% } %>
+
+                                        </table>
+                                    </div>
+                    </div>
+                    <div class="hadith_list" id="content">
+                        <h3>Hadith Participants</h3>
+                        <div class="table">
+                            <table border="1" cellpadding="2" name="musabaqa_list">
                                 <tr>
-                                    <td class="name"> <%= user.name %> </td>
-                                    <td>Hadith Quiz</td>
-                                    <td>مِائَة عَامِل</td>
-                                    <td><%= user.dob %></td>
-                                    <td class="action"><a href="<%= `/app/hadith/edit/${user._id}` %>">
-                                        <i class="fa fa-edit"></i>
-                                    </a></td>
-                                </tr> 
-                           <% }) %>
-                        <% } %>
-                       
-                    </table>
+                                    <th>Student Name</th>
+                                    <th>Program</th>
+                                    <th>Course</th>
+                                    <th>Date of Birth</th>
+                                    <th>Edit</th>
+                                </tr>
+
+                                <% if(quiz){ %>
+                                    <% quiz.forEach((user)=>{ %>
+                                        <tr>
+                                            <td class="name">
+                                                <%= user.name %>
+                                            </td>
+                                            <td>Hadith Quiz</td>
+                                            <td>مِائَة عَامِل</td>
+                                            <td>
+                                                <%= user.dob %>
+                                            </td>
+                                            <td class="action"><a href="<%= `/app/hadith/edit/${user._id}` %>">
+                                                    <i class="fa fa-edit"></i>
+                                                </a></td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
-              
-        </main>
-        <%- include('../partials/hamburger.ejs') %>
+
+            </main>
+            <%- include('../partials/hamburger.ejs') %>
     </div>
-    </div>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Toggle the menu open/close
-            const hamburger = document.querySelector('.hamburger');
-            const mainNav = document.querySelector('.main_nav');
-    
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    mainNav.classList.toggle('open');
-                });
-            }
-    
-            // Get the program input element
-            const program = document.getElementById('program_iput');
-    
-            // Check if the element exists before adding an event listener
-            if (program) {
-                // Add event listener for change on the program dropdown
-                program.addEventListener('change', (e) => {
-                    console.log(e.target.value);
-                });
-    
-                // Log the initial value of the program input
-                console.log('The program:', program.value);
-            }
-        });
-    </script>
-    
+</div>
+<script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Toggle the menu open/close
+        const hamburger = document.querySelector('.hamburger');
+        const mainNav = document.querySelector('.main_nav');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                mainNav.classList.toggle('open');
+            });
+        }
+    });
+
+    // making and downloading the student list using pdf JS
+
+    async function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const content = document.getElementById('content');
+
+        // Use html2canvas to render the content of the div as a canvas
+        const canvas = await html2canvas(content, { scale: 2 });
+        const imgData = canvas.toDataURL('image/png');
+
+        // Initialize jsPDF and add the canvas image
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+        // Scale the image to fit the PDF page
+        const imgWidth = pageWidth;
+        const imgHeight = (canvas.height * pageWidth) / canvas.width;
+
+        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        pdf.save('Students.pdf');
+    }
+
+</script>

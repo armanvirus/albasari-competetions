@@ -8,7 +8,7 @@
     <div>
         <%- include('../partials/nav') %>
             <main class="main">
-                <div class="invoice_container">
+                <div class="invoice_container" id="content">
                     <div class="main_header">
                         <div class="logo">
                             <img src="/img/basari.png" alt="">
@@ -47,39 +47,41 @@
                         <div class="pay-btn" onclick="printReceipt()">Print Receipt</div>
                     </div>
                 </div>
-                
+
             </main>
             <%- include('../partials/hamburger.ejs') %>
-</div>
-<script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Toggle the menu open/close
-        const hamburger = document.querySelector('.hamburger');
-        const mainNav = document.querySelector('.main_nav');
+    </div>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Toggle the menu open/close
+            const hamburger = document.querySelector('.hamburger');
+            const mainNav = document.querySelector('.main_nav');
 
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                mainNav.classList.toggle('open');
-            });
-        }
-    });
-    // paystack payment function
-    function payWithPaystack() {
-        const handler = PaystackPop.setup({
-            key: 'pk_test_c27e70d428e6ee4bbfdbcc8437cbdd2dfafd3593',
-            email: 'customer@example.com', // Customer's email
-            amount: 5000 * 100, // Amount in kobo (e.g., 5000 NGN = 500000 kobo)
-            currency: 'NGN',
-            ref: `REF_${Math.floor(Math.random() * 1000000000)}`,
-            callback: function (response) {
-                alert('Payment successful! Reference: ' + response.reference);
-                // Call your backend here to verify the payment
-            },
-            onClose: function () {
-                alert('Payment window closed.');
-            },
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    mainNav.classList.toggle('open');
+                });
+            }
         });
-        handler.openIframe();
-    }
+        //    generating and downloading invoice PDF
+        async function printReceipt() {
+            const { jsPDF } = window.jspdf;
+            const content = document.getElementById('content');
 
-</script>
+            // Use html2canvas to render the content of the div as a canvas
+            const canvas = await html2canvas(content, { scale: 2 });
+            const imgData = canvas.toDataURL('image/png');
+
+            // Initialize jsPDF and add the canvas image
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+
+            // Scale the image to fit the PDF page
+            const imgWidth = pageWidth;
+            const imgHeight = (canvas.height * pageWidth) / canvas.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+            pdf.save('invoice.pdf');
+        }
+    </script>
