@@ -12,19 +12,19 @@
                     <div class="pending">
                         <div class="pending_head">
                             <div class="logo">
-                                <img src="/img/badge.jpg" alt="">
+                                <img src="/img/badge.jpg" alt="Logo" class="clickable-img">
                             </div>
                             <div class="pending_headings">
                                 <h2>Gombe Academy</h2>
-                                <p class="dashed">wed, 23 Nov @10:30pm</p>
+                                <p class="dashed">Wed, 23 Nov @10:30pm</p>
                             </div>
                         </div>
                         <div class="pending_content">
                             <div class="pending_img">
-                                <img src="/img/badge.jpg" alt="">
+                                <img src="/img/badge.jpg" alt="Content Image" class="clickable-img">
                             </div>
                             <div class="pending_actions">
-                                <p class="reject"><i class="fa fa-close "></i>Reject</p>
+                                <p class="reject"><i class="fa fa-close"></i>Reject</p>
                                 <p class="approve"><i class="fa fa-check approve"></i>Approve</p>
                             </div>
                         </div>
@@ -32,22 +32,164 @@
                 </div>
             </div>
         </div>
-        <div class="right_section"></div>
+        <div class="right_section">
+            <div class="upper_right">
+            <div class="sub_area">
+                <div class="sub_container">
+                    <h3 class="dashed">Approved reciepts</h3>
+                    <div class="sub_content">
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="down_right">
+                <div class="sub_area">
+                    <div class="sub_container">
+                        <h3 class="dashed">Rejected reciepts</h3>
+                        <div class="sub_content">
+                            <div class="sub">
+                                <div class="sub_logo">
+                                    <img src="/img/badge.jpg" alt="">
+                                </div>
+                                <div class="sub_focus">
+                                    <h4 class="sub_name">Gombe Academy</h4>
+                                    <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                                </div>
+                                <div class="sub_action">
+                                    <p class="">Check</p>
+                                </div>
+                            </div>
+                            <!-- sub ends -->
+                            <div class="sub">
+                                <div class="sub_logo">
+                                    <img src="/img/badge.jpg" alt="">
+                                </div>
+                                <div class="sub_focus">
+                                    <h4 class="sub_name">Gombe Academy</h4>
+                                    <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                                </div>
+                                <div class="sub_action">
+                                    <p class="">Check</p>
+                                </div>
+                            </div>
+                            <!-- sub ends -->
+                            <div class="sub">
+                                <div class="sub_logo">
+                                    <img src="/img/badge.jpg" alt="">
+                                </div>
+                                <div class="sub_focus">
+                                    <h4 class="sub_name">Gombe Academy</h4>
+                                    <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                                </div>
+                                <div class="sub_action">
+                                    <p class="">Check</p>
+                                </div>
+                            </div>
+                            <!-- sub ends -->
+                            <div class="sub">
+                                <div class="sub_logo">
+                                    <img src="/img/badge.jpg" alt="">
+                                </div>
+                                <div class="sub_focus">
+                                    <h4 class="sub_name">Gombe Academy</h4>
+                                    <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                                </div>
+                                <div class="sub_action">
+                                    <p class="">Check</p>
+                                </div>
+                            </div>
+                            <!-- sub ends -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </div>
 
-<!-- js -->
-<script>
-    
-        // JavaScript to handle the scroll effect
-        const header = document.getElementById('main-header');
+<!-- Modal for Image Preview -->
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+</div>
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+<script>
+    // JavaScript for Image Preview
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const captionText = document.getElementById('caption');
+
+    // Attach click event to images
+    document.querySelectorAll('.clickable-img').forEach(img => {
+        img.addEventListener('click', () => {
+            modal.style.display = 'block';
+            modalImage.src = img.src;
+            captionText.innerHTML = img.alt || 'Image Preview';
         });
-    </script>
-  
+    });
+
+    // Close the modal
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside the image
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+</script>
