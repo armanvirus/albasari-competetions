@@ -4,8 +4,10 @@ const path = require('path')
 const dotenv = require("dotenv")
 const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser'); 
+const morgan = require('morgan')
 const authRoutes = require('./routes/auths')
 const appRoutes = require('./routes/app')
+
 
 //parse cookie
 app.use(cookieParser());
@@ -24,7 +26,8 @@ require('./database/dbConnection.js')()
 // parse incoming request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+//log request
+app.use(morgan())
 //default route
 app.get("/", (req,res)=>{
     res.render("pages/home");
