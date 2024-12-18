@@ -1,6 +1,7 @@
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/dashboard.css">
+<link rel="stylesheet" href="/styles/dashboard-mobile.css">
 
     <div class="container">
         <div>
@@ -15,7 +16,8 @@
                 <h3>Overview</h3>
                 <div class="dashboard" id="dashboard">
                 <div class="dashboard_top">
-                    <div class="dashboard_card">
+                   <div class="row">
+                    <div class="dashboard_card" style="background: rgb(6, 187, 118); color: #ffff;">
                         <div class="icon"><i class="fa fa-window-restore"></i></div>
                         <div class="detail">
                             <h1> <%= categories %></h1>
@@ -29,15 +31,32 @@
                             <p>Registered Students</p>
                         </div>
                     </div>
+                   </div>
+                   <div class="row">
                     <div class="dashboard_card">
-                        <div class="icon"><i class="fa fa-check"></i></div>
+                        <div class="icon"><i class="fa fa-certificate" aria-hidden="true"></i>
+                        </div>
                         <div class="detail">
-                            <h1>Pending</h1>
-                            <p>Application Status</p>
+                            <h1> <%= categories %></h1>
+                            <p>Registered Programs</p>
                         </div>
                     </div>
+                    <div class="dashboard_card" style="background:rgb(240, 121, 121); color: #ffff; ">
+                        <div class="icon"><i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+                        </div>
+                        <div class="detail">
+                            <h3>Application status</h3>
+                            <p style="margin-top: 10px;"> pending</p>
+                        </div>
+                    </div>
+                   </div>
+                    
                 </div>
-                <div class="dashboard_bottom"></div>
+                <div class="dashboard_bottom">
+                    <div class="start_app">
+                        <a href="/app/application">Start New Application</a>
+                    </div>
+                </div>
                 </div>
                 <!-- applications section -->
                  <div class="applications" id="applications">

@@ -1,6 +1,7 @@
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/styles/application.css">
+<!-- <link rel="stylesheet" href="/styles/application-mobile.css"> -->
 
     <div class="container">
         <div>
@@ -89,31 +90,9 @@
         <%- include('../partials/hamburger.ejs') %>
     </div>
     </div>
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Toggle the menu open/close
-            const hamburger = document.querySelector('.hamburger');
-            const mainNav = document.querySelector('.main_nav');
-    
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    mainNav.classList.toggle('open');
-                });
-            }
-    
-            // Get the program input element
-            const program = document.getElementById('program_iput');
-    
-            // Check if the element exists before adding an event listener
-            if (program) {
-                // Add event listener for change on the program dropdown
-                program.addEventListener('change', (e) => {
-                    console.log(e.target.value);
-                });
-    
-                // Log the initial value of the program input
-                console.log('The program:', program.value);
-            }
-        });
+    <script>
+        document.querySelector('.hambuger').addEventListener('click', function() {
+        document.querySelector('.main_nav').classList.toggle('open');
+        console.log("clicked");
+      });
     </script>
-    
