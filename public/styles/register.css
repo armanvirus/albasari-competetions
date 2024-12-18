@@ -128,10 +128,13 @@ input::placeholder{
         width: 100%;
     }
     .right_part select, .left_part input{
-        width: 100%;
+        width: 89vw;
+        padding: 7%;
     }
+   
     .submission input{
         width: 98%;
+ 
     }
-
+   
 }

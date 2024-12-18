@@ -1,0 +1,53 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/reciepts.css">
+
+<div class="main_container">
+    <%- include('../partials/admin_nav') %>
+    <main>
+        <div class="left_section">
+            <div class="left_container">
+                <h3 class="dashed">Pending Approval</h3>
+                <div class="left_content">
+                    <div class="pending">
+                        <div class="pending_head">
+                            <div class="logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="pending_headings">
+                                <h2>Gombe Academy</h2>
+                                <p class="dashed">wed, 23 Nov @10:30pm</p>
+                            </div>
+                        </div>
+                        <div class="pending_content">
+                            <div class="pending_img">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="pending_actions">
+                                <p class="reject"><i class="fa fa-close "></i>Reject</p>
+                                <p class="approve"><i class="fa fa-check approve"></i>Approve</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_section"></div>
+    </main>
+</div>
+
+<!-- js -->
+<script>
+    
+        // JavaScript to handle the scroll effect
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+  
