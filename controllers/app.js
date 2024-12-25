@@ -1,5 +1,6 @@
 const musabaqaModel = require('../database/musabaqaModel')
 const quizModel = require('../database/quiz')
+const schoolModel = require("../database/UserModel")
 const batch = new Date().getFullYear()
 module.exports = {
     dashboard:async(req,res)=>{
@@ -152,6 +153,11 @@ module.exports = {
         adminPage: async (req,res)=>{
             
                 res.render('pages/admin', { error: false, msg: '' });
-                // const totalStaffs = await infoModel.countDocuments();
+                const schools = await schoolModel.countDocuments({type:"school"});
+                const musabaqaCounts = await musabaqaModel.countDocuments()
+                const quizCounts = await quizModel.countDocuments()
+                const recentDocuments = await MusabaqaModel.find()
+                .sort({ createdAt: -1 }) // Sort by `createdAt` in descending order
+                .limit(3);
         },
 }

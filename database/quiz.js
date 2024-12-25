@@ -7,7 +7,7 @@ const mongoose = require("mongoose"),
         name:{type:String, required:true},
         dob:{type:String, required:true},
         batch:{ type:String, required:true}   
-      });
+      }, { timestamps: true });
 
 
    module.exports = mongoose.model("Quiz", QuizSchema);

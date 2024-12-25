@@ -10,7 +10,7 @@ const mongoose = require("mongoose"),
         category:{type:String, required:true},
         description:{type:String, required:true},
         batch:{ type:String, required:true}   
-      });
+      }, { timestamps: true });
 
 
    module.exports = mongoose.model("musabaqa", musabaqaSchema);
