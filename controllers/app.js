@@ -148,5 +148,10 @@ module.exports = {
         },
         pay:(req,res)=>{
             res.send("hi payment")
-        }
+        },
+        adminPage: async (req,res)=>{
+            
+                res.render('pages/admin', { error: false, msg: '' });
+                // const totalStaffs = await infoModel.countDocuments();
+        },
 }

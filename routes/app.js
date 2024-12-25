@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router();
-const { dashboard, application, participants, quiz, editApplication, edit, edith, edithApplication, pay } = require('../controllers/app')
+const { dashboard, application, participants, quiz, 
+    editApplication, edit, edith, 
+    edithApplication, pay, adminPage } = require('../controllers/app')
 const { isAuthenticated } = require('../middlewares/authenticator')
 
 // define the routes
@@ -13,13 +15,11 @@ router.get('/pay', isAuthenticated, (req, res) => res.render('pages/pay', { erro
 // admin routes
 
 // Admin Dashboard
-router.get('/admin', (req, res) => {
-    res.render('pages/admin', { error: false, msg: '' });
-});
+router.get('/admin', adminPage);
 
 // Schools Page
 router.get('/admin/schools', (req, res) => {
-    res.render('pages/admin_school', { error: false, msg: '' });
+    res.render('pages/admin_schools', { error: false, msg: '' });
 });
 
 // Receipts Page
