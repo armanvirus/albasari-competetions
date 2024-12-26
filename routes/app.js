@@ -17,6 +17,10 @@ router.get('/admin', (req, res) => {
     res.render('pages/admin', { error: false, msg: '' });
 });
 
+// Students Page
+router.get('/admin/students', (req, res) => {
+    res.render('pages/admin_students', { error: false, msg: '' });
+});
 // Schools Page
 router.get('/admin/schools', (req, res) => {
     res.render('pages/admin_school', { error: false, msg: '' });
