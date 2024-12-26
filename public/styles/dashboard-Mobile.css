@@ -16,7 +16,7 @@
         width: 100vw;
         /* margin: 0; */
     }
-    .main_nav {
+   .main_nav {
         display: none; /* Initially hidden */
         position: fixed; /* Position it relative to the viewport */
         top: 0;
@@ -89,8 +89,7 @@
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     padding: 10px 0 10px 15px;
-}
-    .main {
+} .main {
         width: 100vw;
         margin-top: 10px;
         padding: 20px;
