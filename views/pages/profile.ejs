@@ -9,7 +9,7 @@
                 <div class="profile">
                     <div class="profile_left">
                         <div class="profile_badge">
-                            <img src="/img/badge.jpg" alt="" class="profile_icon">
+                            <img src="/img/profile.webp" alt="" class="profile_icon">
                         </div>
                         <div class="file-upload">
                             <input type="file" id="fileInput" hidden />
@@ -63,23 +63,9 @@
     </div>
 </div>
 <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Toggle the menu open/close
-        const hamburger = document.querySelector('.hamburger');
-        const mainNav = document.querySelector('.main_nav');
-
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                mainNav.classList.toggle('open');
-            });
-        }
-    });
-
-    const fileInput = document.getElementById("fileInput");
-    const fileName = document.getElementById("fileName");
-
-    fileInput.addEventListener("change", () => {
-        fileName.textContent = fileInput.files[0]?.name || "No file chosen";
-    });
+    document.querySelector('.hambuger').addEventListener('click', function() {
+    document.querySelector('.main_nav').classList.toggle('open');
+    console.log("clicked");
+  });
 
 </script>

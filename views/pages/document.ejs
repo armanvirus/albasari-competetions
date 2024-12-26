@@ -52,11 +52,11 @@
                                     <div class="table">
                                         <table border="1" cellpadding="2" name="musabaqa_list">
                                             <tr>
-                                                <th>Student Name</th>
+                                                <th>Name</th>
                                                 <th>Category</th>
                                                 <th>Riwaya</th>
                                                 <th>Description</th>
-                                                <th>Date of Birth</th>
+                                                <th>DOB</th>
                                                 <th>Edit</th>
                                             </tr>
                                             <% if(musabaqa){ %>
@@ -93,10 +93,10 @@
                         <div class="table">
                             <table border="1" cellpadding="2" name="musabaqa_list">
                                 <tr>
-                                    <th>Student Name</th>
+                                    <th>Name</th>
                                     <th>Program</th>
                                     <th>Course</th>
-                                    <th>Date of Birth</th>
+                                    <th>DOB</th>
                                     <th>Edit</th>
                                 </tr>
 
@@ -128,39 +128,8 @@
     </div>
 </div>
 <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Toggle the menu open/close
-        const hamburger = document.querySelector('.hamburger');
-        const mainNav = document.querySelector('.main_nav');
-
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                mainNav.classList.toggle('open');
-            });
-        }
-    });
-
-    // making and downloading the student list using pdf JS
-
-    async function downloadPDF() {
-        const { jsPDF } = window.jspdf;
-        const content = document.getElementById('content');
-
-        // Use html2canvas to render the content of the div as a canvas
-        const canvas = await html2canvas(content, { scale: 2 });
-        const imgData = canvas.toDataURL('image/png');
-
-        // Initialize jsPDF and add the canvas image
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
-
-        // Scale the image to fit the PDF page
-        const imgWidth = pageWidth;
-        const imgHeight = (canvas.height * pageWidth) / canvas.width;
-
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-        pdf.save('Students.pdf');
-    }
-
+   document.querySelector('.hambuger').addEventListener('click', function() {
+    document.querySelector('.main_nav').classList.toggle('open');
+    console.log("clicked");
+  });
 </script>
