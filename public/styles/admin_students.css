@@ -96,7 +96,7 @@ h1.all {
 /* content area starts */
 .bottom {
     display: grid;
-    grid-template-columns: 90% 0%;
+    grid-template-columns: 100%;
     gap: .5rem;
 }
 .bottom .content_area {
