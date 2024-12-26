@@ -17,6 +17,10 @@ router.get('/pay', isAuthenticated, (req, res) => res.render('pages/pay', { erro
 // Admin Dashboard
 router.get('/admin', adminPage);
 
+// Students Page
+router.get('/admin/students', (req, res) => {
+    res.render('pages/admin_students', { error: false, msg: '' });
+});
 // Schools Page
 router.get('/admin/schools', (req, res) => {
     res.render('pages/admin_schools', { error: false, msg: '' });

@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    /* --color-primary:#066A38;
+    --color-secondary:#528540; */
+    --default-font: ubuntu;
+    --main-shadow: 1px 1px 3px #bebaba;
+    --color-error: rgb(240, 121, 121);
+    --color-warning: rgb(249, 237, 101);
+    --main-bg: rgba(191,191,191,0.9);
+    --main-green: rgb(6, 187, 118);
+
+}
+body {
+    background: var(--main-bg);
+    font-family: GraphikBold;
+}
+a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+}
+
+ul li {
+    display: inline;
+    margin: 0 .5rem;
+    list-style-type: none;
+}
+
+.dashed {
+    color: #999;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* font-size: 18px; */
+}
+
+.main_container {
+    width: 90vw;
+    /* background: red; */
+    margin-inline: auto;
+}
+/* header starts */
+header {
+    /* background: green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 4.5rem;
+    position: fixed;
+    /* background: var(--main-green); */
+    top: -0.1rem;
+    left: 0;
+    right: 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+/* adding background to the header on scroll */
+header.scrolled {
+    background: var(--main-bg); 
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
+    color: #fff;
+}
+
+header .logo_start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+header .logo {
+    
+}
+header .logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+header .nav_start {
+    display: flex;
+}
+
+/* header starts */
+main {
+    margin-top: 7rem;
+     height: 2000px;
+}
+/* upper cards ends */
+h1.all {
+    margin: 20px;
+}
+/* content area starts */
+.bottom {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: .5rem;
+}
+.bottom .content_area {
+    background: #fff;
+    border-radius: .5rem;
+    padding: 20px;
+}
+
+
+/* student area starts */
+/* search & filter area starts*/
+.bottom .content_area .content_container .filter_area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.bottom .content_area .content_container .filter_area form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+.bottom .content_area .content_container .filter_area form select{
+        width: 45%; /* Full width */
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px; /* Rounded corners */
+        background-color: #f9f9f9; /* Light background */
+        font-size: 16px;
+        color: #333; /* Text color */
+        appearance: none; /* Removes the default arrow in most browsers */
+        -webkit-appearance: none; /* Removes the default arrow in Safari/Chrome */
+        -moz-appearance: none; /* Removes the default arrow in Firefox */
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEwIDE4aDRhMSAxIDAgMCAxIDAgMkgxMGEgMSAxIDAgMCAxIDAtMnpNNiAxMWgxMmExIDEgMCAwIDEgMCAySDZhMSAxIDAgMCAxIDAtMnpNMCAzaDIwYTEgMSAwIDAgMSAwIDJIMGEgMSAxIDAgMCAxIDAtMnoiLz48L3N2Zz4=');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 12px;
+}
+.bottom .content_area .content_container .filter_area form input{
+        outline: none;
+        width: 80%; /* Full width */
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px; /* Rounded corners */
+        background-color: #f9f9f9; /* Light background */
+        font-size: 16px;
+        color: #333; /* Text color */
+        appearance: none; /* Removes the default arrow in most browsers */
+        -webkit-appearance: none; /* Removes the default arrow in Safari/Chrome */
+        -moz-appearance: none; /* Removes the default arrow in Firefox */
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExIDJhOSA5IDAgMSAxLTYuMzYgMTUuMzZsLTQuNyA0LjdhMSAxIDAgMCAxLTEuNDItMS40Mmw0LjctNC43QTkgOSAwIDAgMSAxMSAyeiBtMCAyYTcgNyAwIDEgMCA0Ljk1IDIuMDVBNi45MyA2LjkzIDAgMCAwIDExIDR6Ii8+PC9zdmc+');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 12px;
+}
+select:focus {
+    outline: none;
+    border-color: #4CAF50; /* Focus border color */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Glow effect */
+}
+
+/* arrows */
+.arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: ;
+}
+
+.foreward {
+    background: var(--main-green);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: .5rem;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 20px;
+    /* display: inline-block;   */
+    cursor: pointer;
+    text-transform: lowercase;
+}
+
+/* search & filter area ends*/
+.student_area {
+
+}
+.student_area .students .student_head {
+    background: var(--main-green);
+    padding: 10px;
+    color: #fff;
+}
+
+/* table starts */
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders merge cleanly */
+    /* margin: 20px auto; */
+    border: 1px solid #ccc;
+    border-radius: .5rem; /* Adds rounded corners */
+    overflow: hidden; /* Clips the borders properly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /*Adds a shadow*/
+}
+th, td {
+    padding: 10px 15px;
+    text-align: left;
+    font-weight: 300;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+tbody tr {
+    background-color: #f9f9f9; /* Adds alternating row colors */
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; /* Highlights on hover */
+    transition: all .2s ease-in-out;
+    border-radius: .5rem;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+th {
+    font-weight: bold;
+    border-bottom: 2px solid #ddd; /* Separates header */
+}
+
+td {
+    border-bottom: 1px solid #eee; /* Subtle row separation */
+}
+/* table ends */
+.student_area .students .student {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    border-bottom: 1px solid #888;
+}
+
+.student_area .students .student .student_name,
+.student_area .students .student .student_age,
+.student_area .students .student .student_category,
+.student_area .students .student .student_program,
+.student_area .students .student .student_matashiya {
+    /* border-left: 2px solid #888; */
+}
+
+
+
+/* student area ends */
+
+/* content area ends */
+/* sub area starts */
+.sub_area{
+    /* width: 45%; */
+}
+.sub_area .sub_container {
+    background: #fff;
+    border-radius: .5rem;
+    padding: 20px;
+}
+.sub_area .sub_container .sub_content {}
+.sub_area .sub_container .sub_content .sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1rem;
+    
+}
+.sub_area .sub_container .sub_content .sub:hover {
+    background: #f1f1f1;
+    padding: 10px 2px;
+    transition: all .2s ease-in-out;
+    border-radius: .5rem;
+    transform: scale(1.02);
+}
+.sub_area .sub_container .sub_content .sub .sub_logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.sub_area .sub_container .sub_content .sub .sub_logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+
+}
+.sub_area .sub_container .sub_content .sub_action {
+    background: var(--main-green);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: .5rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+
+
+/* sub area ends */
+
+
+
+/* responsive design */
+@media (max-width: 768px) {
+
+}
+
+
+
+/* cluster password: vyJHw0BMR3eecHUL  */
