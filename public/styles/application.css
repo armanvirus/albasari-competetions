@@ -50,14 +50,7 @@ ul li {
     margin-top: 30px;
 }
 .main_nav {
-    width: 20%;
-    height: 90vh;
-    /* background: red; */
-    /* background: rgb(246, 237, 237); */
-    /* box-shadow: var(--main-shadow); */
-    color: #fff;
-    /* border-radius: 5px; */
-    border-right: 3px solid var(--main-green);
+                        
 }
 
 .main_nav .menu {
@@ -167,23 +160,8 @@ ul li {
         width: 100vw;
         /* margin: 0; */
     }
-    .hambuger {
-        position: fixed;
-        /* background: red; */
-        top: 10px;
-        left: 300px;
-        display: block;
-        /* z-index: 100; */
-        cursor: pointer;
-    }
-    .hambuger div {
-        width: 40px;
-        height: 8px;
-        background: var(--main-green);
-        border-radius: 12px;
-        margin: 5px;
-        z-index: 100;
-    }
+    
+    
     .main {
         width: 100vw;
         margin-top: 10px;
@@ -196,8 +174,7 @@ ul li {
     
     .main_nav {
         display: none;
-        width: 100vw;
-        height: 100vh;
+       
         background: var(--color-primary);
         color: #fff;
         flex-direction: row-reverse;
@@ -211,6 +188,8 @@ ul li {
     .main_nav.open {
         display: block;
         transform: translateY(0);
+        width: 100vw;
+        height: 100vh; 
     }
     #apply_form > div:first-child{
         flex-direction: column;
@@ -403,27 +382,3 @@ input::placeholder{
     box-shadow: 0 0 3px rgba(12,202,74, .3);
     border-radius: 5px;
 }
-
-/* @media(max-width:650px){
-    #apply_form > div:first-child{
-        flex-direction: column;
-    }
-    .whole_container .bg img{
-        position: fixed;
-        top: 25%;
-    }
-    .dula{
-        height: 100%;
-        padding: 3rem .5rem
-    }
-    .left_part{
-        width: 100%;
-    }
-    .right_part select, .left_part input{
-        width: 100%;
-    }
-    .submission input{
-        width: 98%;
-    }
-
-} */
