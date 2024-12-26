@@ -73,7 +73,7 @@ module.exports = {
         if(!name || !dob)
             return res.render('pages/hadith',{error:true, msg:"please fill all fields"})
         const newStudent = new quizModel({
-            schoolName:req.user._id,
+            schoolName:req.user.name,
             school:req.user._id,
             name,
             dob,
@@ -152,12 +152,23 @@ module.exports = {
         },
         adminPage: async (req,res)=>{
             
-                res.render('pages/admin', { error: false, msg: '' });
-                const schools = await schoolModel.countDocuments({type:"school"});
-                const musabaqaCounts = await musabaqaModel.countDocuments()
-                const quizCounts = await quizModel.countDocuments()
-                const recentDocuments = await MusabaqaModel.find()
-                .sort({ createdAt: -1 }) // Sort by `createdAt` in descending order
-                .limit(3);
+            const schools = await schoolModel.countDocuments({type:"school"});
+            const musabaqaCounts = await musabaqaModel.countDocuments()
+            const quizCounts = await quizModel.countDocuments()
+            const recentMuasabaqa = await musabaqaModel.find()
+            .sort({ createdAt: -1 }) // Sort by `createdAt` in descending order
+            .limit(3);
+            const recentQuiz = await quizModel.find()
+            .sort({ createdAt: -1 }) // Sort by `createdAt` in descending order
+            .limit(3);
+            res.render('pages/admin', { error: false, msg: '', data:{
+                funds: schools * 5000,
+                schools,
+                students: musabaqaCounts + quizCounts,
+                payments: schools,
+                applications:schools,
+                recent:[recentMuasabaqa, recentQuiz]
+
+            } });
         },
 }

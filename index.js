@@ -7,7 +7,8 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan')
 const authRoutes = require('./routes/auths')
 const appRoutes = require('./routes/app')
-
+const helpers = require('./utils/helpers.js');
+app.locals.helpers = helpers;
 
 //parse cookie
 app.use(cookieParser());
