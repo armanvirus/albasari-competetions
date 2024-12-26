@@ -23,7 +23,7 @@ router.get('/admin/students', (req, res) => {
 });
 // Schools Page
 router.get('/admin/schools', (req, res) => {
-    res.render('pages/admin_school', { error: false, msg: '' });
+    res.render('pages/admin_schools', { error: false, msg: '' });
 });
 
 // Receipts Page
