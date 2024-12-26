@@ -179,55 +179,12 @@ main {
     padding: 1rem;
     border-radius: .5rem;
 }
-
-/* upper cards */
-.upper-cards {
-    /* display: flex; */
-    /* align-items: center; */
-    width: auto;
-    margin: 1rem 0;
-    gap: 1.5rem;
-    /* justify-content: center; */
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-.upper-cards .card {
-    background: #fff;
-    border-radius: .5rem;
-}
-.upper-cards .card .card_container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px;
-    
-}
-.upper-cards .card .card_container .card_left {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.upper-cards .card .card_container .card_left p{
-    margin-top: .2rem;
-}
-.upper-cards .card .card_container .card_right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-}
-.upper-cards .card .card_container .card_right  {
-    /* margin-top: 12rem; */
-}
-
-
-/* upper cards ends */
-
 /* content area starts */
 .bottom {
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 100%;
     gap: .5rem;
+    margin-top: 1rem;
 }
 .bottom .content_area {
     background: #fff;
@@ -297,14 +254,17 @@ select:focus {
 }
 
 .foreward {
-        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEwLjQxIDcuNDFsNC4yNSA0LjI1YTIgMiAwIDAgMSAwIDIuODNsLTQuMjUgNC4yNWEyIDEgMCAwIDEtMS40MS0uNDFWNy44MmEyIDEgMCAwIDEgMS40MS0uNDF6Ii8+PC9zdmc+');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        width: 30px;
-        height: 30px;
-        /* display: inline-block;   */
-        cursor: pointer;
+    background: var(--main-green);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: .5rem;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 20px;
+    /* display: inline-block;   */
+    cursor: pointer;
+    text-transform: lowercase;
 }
 
 /* search & filter area ends*/
