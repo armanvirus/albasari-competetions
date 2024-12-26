@@ -89,7 +89,8 @@
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     padding: 10px 0 10px 15px;
-} .main {
+} 
+    .main {
         width: 100vw;
         margin-top: 10px;
         padding: 20px;
