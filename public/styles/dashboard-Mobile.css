@@ -1,148 +1,151 @@
 :root {
-    /* --color-primary:#066A38;
+  /* --color-primary:#066A38;
     --color-secondary:#528540; */
-    --default-font: ubuntu;
-    --main-shadow: 1px 1px 3px #bebaba;
-    --color-error: rgb(240, 121, 121);
-    --color-warning: rgb(249, 237, 101);
-    --main-bg: rgba(191,191,191,0.9);
-    --main-green: rgb(6, 187, 118);
-
+  --default-font: ubuntu;
+  --main-shadow: 1px 1px 3px #bebaba;
+  --color-error: rgb(240, 121, 121);
+  --color-warning: rgb(249, 237, 101);
+  --main-bg: rgba(191, 191, 191, 0.9);
+  --main-green: rgb(6, 187, 118);
 }
 /* responsive design */
 @media (max-width: 768px) {
-    .container {
-        /* background: #000; */
-        width: 100vw;
-        /* margin: 0; */
-    }
-   .main_nav {
-        display: none; /* Initially hidden */
-        position: fixed; /* Position it relative to the viewport */
-        top: 0;
-        left: 0;
-        width: 100vw; /* Full width */
-        height: 100vh; /* Full height */
-        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
-        z-index: 1000; /* High z-index to appear above other elements */
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateY(-100%); /* Hide above the viewport */
-        transition: transform 0.5s ease-in-out; /* Smooth slide-in effect */
-    }
-    
-    .main_nav.open {
-        display: flex; /* Show the menu */
-        transform: translateY(0); /* Slide into view */
-    }
-    
-    .hambuger {
-        position: fixed;
-        top: 10px;
-        left: 300px;
-        display: block;
-        cursor: pointer;
-        z-index: 200;
-    }
-    .hambuger div {
-        width: 40px;
-        height: 8px;
-        background: var(--main-green);
-        border-radius: 12px;
-        margin: 5px;
-        z-index: 100;
-    }
-    
-.main_nav .menu {
+  .container {
+    /* background: #000; */
+    width: 100vw;
+    /* margin: 0; */
+  }
+  .main_nav {
+    display: none; /* Initially hidden */
+    position: fixed; /* Position it relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.9
+    ); /* Semi-transparent black background */
+    z-index: 1000; /* High z-index to appear above other elements */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%); /* Hide above the viewport */
+    transition: transform 0.5s ease-in-out; /* Smooth slide-in effect */
+  }
+
+  .main_nav.open {
+    display: flex; /* Show the menu */
+    transform: translateY(0); /* Slide into view */
+  }
+
+  .hambuger {
+    position: fixed;
+    top: 10px;
+    left: 300px;
+    display: block;
+    cursor: pointer;
+    z-index: 200;
+  }
+  .hambuger div {
+    width: 40px;
+    height: 8px;
+    background: var(--main-green);
+    border-radius: 12px;
+    margin: 5px;
+    z-index: 100;
+  }
+
+  .main_nav .menu {
     margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-
-}
-.menu ul li {
+  }
+  .menu ul li {
     margin: 15px 0;
     width: 100vw;
-}
-.menu ul li a {
+  }
+  .menu ul li a {
     color: var(--color-primary);
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
     margin-left: 20px;
     margin-bottom: 20px;
     color: #fff;
-}
-.menu ul li a:hover,
-.menu ul li a:active {
+  }
+  .menu ul li a:hover,
+  .menu ul li a:active {
     width: 100%;
     background: var(--main-green);
     color: #fff;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     padding: 10px 0 10px 15px;
-}
-.menu ul li a.dashboard_link {
+  }
+  .menu ul li a.dashboard_link {
     width: 100%;
     background: var(--main-green);
     color: #fff;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     padding: 10px 0 10px 15px;
-} 
-    .main {
-        width: 100vw;
-        margin-top: 10px;
-        padding: 20px;
-       
-    }
-    .main .main_inner .dashboard .dashboard_top {
-        flex-direction: column;
-    }
-    .dashboard_top .row {
-        display: grid;
-        grid-template-columns: repeat(2, 45%);
-        gap: 8px;
-        width: 98vw;
-    }
-    .main_inner .dashboard .dashboard_top .row .dashboard_card {
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 20px;
-        /* background: var(--main-green); */
-        background: #fff;
-        border-radius: 5px;
-        /* padding: 30px 20px; */
-        color: #000;
-    }
-   .main_inner .dashboard .dashboard_top .row .dashboard_card .icon i{
-        font-size: 20px;
-    }
-    .main_inner .dashboard .dashboard_top .row .dashboard_card:nth-child(2){
-        /* background: var(--color-error); */
-    }
-    .main_inner .dashboard .dashboard_top .row .dashboard_card .detail {
-        display: flex;
-        justify-content: center;
-        margin: 10px 0 0 0;
-        font-size: 10px;  
-    }
-    .main_inner .dashboard .dashboard_top .row .dashboard_card .detail > p {
-        /* margin-left: -10px;
+  }
+  .main {
+    width: 100vw;
+    margin-top: 10px;
+    padding: 20px;
+  }
+  .main .main_inner .dashboard .dashboard_top {
+    flex-direction: column;
+  }
+  .dashboard_top .row {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    gap: 8px;
+    width: 98vw;
+  }
+  .main_inner .dashboard .dashboard_top .row .dashboard_card {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    /* background: var(--main-green); */
+    background: #fff;
+    border-radius: 5px;
+    /* padding: 30px 20px; */
+    color: #000;
+  }
+  .main_inner .dashboard .dashboard_top .row .dashboard_card .icon i {
+    font-size: 20px;
+  }
+  .main_inner .dashboard .dashboard_top .row .dashboard_card:nth-child(2) {
+    /* background: var(--color-error); */
+  }
+  .main_inner .dashboard .dashboard_top .row .dashboard_card .detail {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+    font-size: 10px;
+  }
+  .main_inner .dashboard .dashboard_top .row .dashboard_card .detail > p {
+    /* margin-left: -10px;
         margin-top: 3px; */
-    } 
-    .dashboard_bottom {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 40px;
-    }
-    .dashboard_bottom .start_app{}
-    .dashboard_bottom .start_app a{
-        background: var(--main-green);
-        color: #ffff;
-        text-align: center;
-        padding: 15px 25px;
-        border-radius: .3rem;
-    }
+  }
+  .dashboard_bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .dashboard_bottom .start_app {
+  }
+  .dashboard_bottom .start_app a {
+    background: var(--main-green);
+    color: #ffff;
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 0.3rem;
+  }
 }
