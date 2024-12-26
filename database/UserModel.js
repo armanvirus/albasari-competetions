@@ -7,6 +7,7 @@ const mongoose = require("mongoose"),
         phone:{type:String, required:true},
         address:{type:String, required:true},
         name:{type:String, required:true},
+        type:{type:String, required:true, 'default': "school"},
         verified:{type:Boolean, default:false},
         createdOn:{ type: Date, 'default': Date.now }   
       });
