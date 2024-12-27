@@ -265,6 +265,15 @@ module.exports = {
             res.render('pages/admin_students', { error: false, msg: '', data:{
                 students:groupedData
             } });
+        },
+        adminList: async(req,res)=>{
+            const school = req.params.school;
+            const students = await musabaqaModel.find({school}).sort({hizb:1})
+            const students2 = await quizModel.find({school})
+            res.render('pages/admin_list', { error: false, msg: '', data:{
+                students,
+                students2
+            } });
         }
 }
 
