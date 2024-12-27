@@ -147,8 +147,57 @@ module.exports = {
                 res.render('pages/document', 
                 {error:true, msg:`participant successfully updated`,musabaqa, quiz })
         },
-        pay:(req,res)=>{
-            res.send("hi payment")
+        pay: async(req,res)=>{
+            /*const payload = req.body;
+            const payvessel_signature = req.header("payvessel-http-signature");
+            console.log("signature log",payvessel_signature)
+            // const ip_address = req.connection.remoteAddress ;
+            const ip_address = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+            const secret = 'PVSECRET-';
+            const hash = crypto.createHmac('sha512', secret)
+              .update(JSON.stringify(payload))
+              .digest('hex');
+          console.log("hash log", hash)
+            if (
+                // payvessel_signature === hash &&
+                 ip_address === '162.246.254.36') {
+              const data = payload;
+              const amount = parseFloat(data.order.amount);
+            //   const settlementAmount = parseFloat(data.order.settlement_amount);
+            //   const fee = parseFloat(data.order.fee);
+              const reference = data.transaction.reference;
+            //   const description = data.order.description;
+              // Check if reference already exists in your payment transaction table
+              const alreadyPayed = await historyModel.findOne({transactionReference:reference})
+              if (!alreadyPayed) {
+                const user = await userModel.findOne({email:data.customer.email})
+                const wallet = await walletModel.findOneAndUpdate({
+                    user: user._id
+                },
+                    { $inc: { available: (amount - 50), total: (amount - 50) } },
+                    { new: true },) 
+                    
+                const newHistory = new historyModel({
+                    user: wallet.user,
+                    service: "funding",
+                    beneficiary: {
+                        name: "vrs data",
+                        payload: data.virtualAccount.virtualAccountNumber
+                    },
+                    amount,
+                    transactionReference: reference
+                })
+                await newHistory.save()
+                // Fund user wallet here
+                res.status(200).json({ message: 'success' });
+              } else {
+                res.status(200).json({ message: 'transaction already exist' });
+              }
+            } else {
+                console.log("hash compare",payvessel_signature === hash)
+                console.log("ip compare",ip_address === '162.246.254.36')
+              res.status(400).json({ message: 'Permission denied, invalid hash or ip address.' });
+            } */
         },
         adminPage: async (req,res)=>{
             
@@ -171,4 +220,51 @@ module.exports = {
 
             } });
         },
+        adminSchools: async(req,res)=>{
+            // const schools = await schoolModel.find();
+            // const mongoose = require('mongoose');
+
+    // Get all users with populated "school" field
+    const users = await schoolModel.find()
+    const quiz = await quizModel.find()
+    const musabaqa = await musabaqaModel.find()
+// /create a new array with user data and number of students that corresponds to the user and if students exist in both quiz and musabaqa the object should contents programs and value of two if exist in one value 1 else 0
+    const data = users.map(user => {        
+        const students = musabaqa.filter(student => student.school == user._id).length; 
+        const students2 = quiz.filter(student => student.school == user._id).length;    
+        const program = students > 0 && students2 > 0 ? 2 : students > 0 || students2 > 0 ? 1 : 0;
+        return {
+            user,
+            programs: program,
+            totalStudents: students + students2,
+        };
+    }
+    );
+    // console.log(data)
+                res.render('pages/admin_schools', { error: false, msg: '', data});
+        },
+        adminStudents: async(req,res)=>{
+            const students = await musabaqaModel.find();
+            const students2 = await quizModel.find()
+            function groupByCategory(data) {
+                return data.reduce((grouped, item) => {
+                  const existingGroup = grouped.find(group => group.category === item.category);
+              
+                  if (existingGroup) {
+                    existingGroup.items.push(item);
+                  } else {
+                    grouped.push({ category: item.category, items: [item] });
+                  }
+              
+                  return grouped;
+                }, []);
+              }
+
+              const groupedData = groupByCategory(students);
+
+            res.render('pages/admin_students', { error: false, msg: '', data:{
+                students:groupedData
+            } });
+        }
 }
+

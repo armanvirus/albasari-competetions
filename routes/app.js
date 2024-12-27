@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router();
 const { dashboard, application, participants, quiz, 
     editApplication, edit, edith, 
-    edithApplication, pay, adminPage } = require('../controllers/app')
+    edithApplication, pay, adminPage, adminSchools, adminStudents } = require('../controllers/app')
 const { isAuthenticated } = require('../middlewares/authenticator')
 
 // define the routes
@@ -18,13 +18,9 @@ router.get('/pay', isAuthenticated, (req, res) => res.render('pages/pay', { erro
 router.get('/admin', adminPage);
 
 // Students Page
-router.get('/admin/students', (req, res) => {
-    res.render('pages/admin_students', { error: false, msg: '' });
-});
+router.get('/admin/students', adminStudents);
 // Schools Page
-router.get('/admin/schools', (req, res) => {
-    res.render('pages/admin_schools', { error: false, msg: '' });
-});
+router.get('/admin/schools', adminSchools);
 
 // Receipts Page
 router.get('/admin/reciepts', (req, res) => {
@@ -51,6 +47,8 @@ router.get('/app', (req, res) => {
 router.get('/payment', isAuthenticated, (req, res) => res.render('pages/payment', { error: false, msg: '' }))
 router.get('/application/edit/:id', isAuthenticated, editApplication)
 router.get('/hadith/edit/:id', isAuthenticated, edithApplication)
+router.post('/application/edit/:id', isAuthenticated, edit)
+router.post('/hadith/edit/:id', isAuthenticated, edith)
 // router.get('/document', isAuthenticated, (req,res)=> res.render('pages/document',{error:false, msg:''})) 
 router.get('/profile', isAuthenticated, (req, res) => res.render('pages/profile', { error: false, msg: '', user: req.user }))
 router.post("/application", isAuthenticated, application)
