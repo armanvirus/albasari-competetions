@@ -240,7 +240,31 @@ module.exports = {
         };
     }
     );
-    console.log(data)
+    // console.log(data)
                 res.render('pages/admin_schools', { error: false, msg: '', data});
+        },
+        adminStudents: async(req,res)=>{
+            const students = await musabaqaModel.find();
+            const students2 = await quizModel.find()
+            function groupByCategory(data) {
+                return data.reduce((grouped, item) => {
+                  const existingGroup = grouped.find(group => group.category === item.category);
+              
+                  if (existingGroup) {
+                    existingGroup.items.push(item);
+                  } else {
+                    grouped.push({ category: item.category, items: [item] });
+                  }
+              
+                  return grouped;
+                }, []);
+              }
+
+              const groupedData = groupByCategory(students);
+
+            res.render('pages/admin_students', { error: false, msg: '', data:{
+                students:groupedData
+            } });
         }
 }
+
