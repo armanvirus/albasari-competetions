@@ -80,14 +80,16 @@
                                         <th class="student_head">Registration status</th>
                                     </tr>
                                     <% data.forEach((stud)=>{ %>
+                                        
                                         <tr>
-                                            <td><%= stud.user.name %></td>
-                                            <td><%= stud.user.email %></td>
-                                            <td><%= stud.user.phone %></td>
-                                            <td><%= stud.programs %></td>
-                                            <td><%= stud.totalStudents %></td>
-                                            <td>completed</td>
-                                        </tr>
+                                                <td><a href="/app/admin/students/list/<%= stud.user._id %>"> <%= stud.user.name %> </a> </td>
+                                                <td><a href="/app/admin/students/list/<%= stud.user._id %>"> <%= stud.user.email %> </a>  </td>
+                                                <td><a href="/app/admin/students/list/<%= stud.user._id %>"> <%= stud.user.phone %> </a>  </td>
+                                                <td><a href="/app/admin/students/list/<%= stud.user._id %>"> <%= stud.programs %> </a>  </td>
+                                                <td><a href="/app/admin/students/list/<%= stud.user._id %>"> <%= stud.totalStudents %> </a>  </td>
+                                                <td>completed</td>
+                                            </tr>
+                                        
                                           <% }); %>
                                 </table>
                             </div>
