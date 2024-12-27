@@ -23,7 +23,10 @@ router.get('/admin/students', adminStudents);
 // Schools Page
 router.get('/admin/schools', adminSchools);
 
-router.get('/admin/students/list/:school', adminList)
+// fake route
+router.get('/admin/students/list', adminList)
+
+// router.get('/admin/students/list/:school', adminList)
 // Receipts Page
 router.get('/admin/reciepts', (req, res) => {
     res.render('pages/reciepts', { error: false, msg: '' });

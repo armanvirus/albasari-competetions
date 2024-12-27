@@ -1,0 +1,304 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/admin_list.css">
+
+<div class="main_container">
+    <%- include('../partials/admin_nav') %>
+    <main>
+        <div class="upper">
+            <div class="upper_top">
+                <div class="left" aos-data="fade-left">
+                    <div class="in_side">
+                        <div class="in_up">
+                            <p class="dashed">Finance</p>
+                            <h2 class="bold">Musabaqah Account</h2>
+                            <div class="spanned">
+                                <p class="dashed">Albasary Islamic Academy </p>
+                            <span>
+                                <i class="fa fa-arrow-right"></i>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="in_down">
+                            <button>Transfer money</button>
+                            <button>Link accounts</button>
+                        </div>
+                    </div>
+                    <div class="off_side">
+                        <p class="dashed">Available Funds</p>
+                        <div class="amount">
+                            <h1 class="bold"><%= data.funds %>.00</h1>
+                        <span class="dashed">₦</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="left">
+                        <div class="up">
+                            <h2>Receipt Notifications</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur,loremque nisi debitis quaerat unde similique,
+                            </p>
+                        </div>
+                        <a href="/app/admin/reciepts" class="btn">View Receipts</a>
+                    </div>
+                    <div class="right">
+                        <i class="fa fa-handshake" style="color: #fff; font-size: 6rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- upper cards starts -->
+            <div class="upper-cards">
+                <a href="/app/admin/schools" class="card">
+                    <div class="card_container">
+                        <div class="card_left">
+                            <div class="left_up">
+                                <h2>Schools</h2>
+                            <p class="dashed">Registered</p>
+                            </div>
+                            <div class="left_down">
+                                <h1><%= data.schools %></h1>
+                            </div>
+                        </div>
+                        <div class="card_right">
+                            <div class="right_up">
+                                <i class="fa fa-university" style="font-size: 2rem; color: rgb(247, 143, 143);"></i>
+                            </div>
+                            <div class="right_down">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- card ends -->
+                <a href="/app/admin/students" class="card">
+                    <div class="card_container">
+                        <div class="card_left">
+                            <div class="left_up">
+                                <h2>Students</h2>
+                            <p class="dashed">Approved</p>
+                            </div>
+                            <div class="left_down">
+                                <h1><%= data.students %></h1>
+                            </div>
+                        </div>
+                        <div class="card_right">
+                            <div class="right_up">
+                                <i class="fa fa-users" style="font-size: 2rem; color: rgb(247, 143, 143);"></i>
+                            </div>
+                            <div class="right_down">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- card ends -->
+                <a href="" class="card">
+                    <div class="card_container">
+                        <div class="card_left">
+                            <div class="left_up">
+                                <h2>Payments</h2>
+                            <p class="dashed">Recieved</p>
+                            </div>
+                            <div class="left_down">
+                                <h1><%= data.schools %></h1>
+                            </div>
+                        </div>
+                        <div class="card_right">
+                            <div class="right_up">
+                                <i class="fa fa-credit-card" style="font-size: 2rem;"></i>
+                            </div>
+                            <div class="right_down">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- card ends -->
+                <a href="" class="card">
+                    <div class="card_container">
+                        <div class="card_left">
+                            <div class="left_up">
+                                <h2>Applications</h2>
+                            <p class="dashed">overall</p>
+                            </div>
+                            <div class="left_down">
+                                <h1><%= data.schools %></h1>
+                            </div>
+                        </div>
+                        <div class="card_right">
+                            <div class="right_up">
+                                <i class="fa fa-cloud" style="font-size: 2rem; color: rgb(247, 143, 143);"></i>
+                            </div>
+                            <div class="right_down">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- card ends -->
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="content_area">
+                <div class="content_container">
+                    <div class="filter_area">
+                        <form action="">
+                            <select name="" id="" class="filter">
+                                <option value="Filter">Filter</option>
+                                <option value="Name">Name</option>
+                                <option value="Name">Name</option>
+                                <option value="Programme">Programme</option>
+                                <option value="Cateogory">Cateogory</option>
+                                <option value="Riwaya">Riwaya</option>
+                                <option value="Age">Age</option>
+                                <option value="Matashiya">Matashiya</option>
+                            </select>
+                            <input type="search" name="" id="" placeholder="search here">
+                        </form>
+                        <div class="arrows">
+                            <div class="backward"></div>
+                            <div class="foreward"></div>
+                        </div>
+                    </div>
+                    <div class="student_area">
+                        <div class="students">
+                            <table>
+                                <tr>
+                                    <th class="student_head">Name</th>
+                                    <th class="student_head">School</th>
+                                    <th class="student_head">Programme</th>
+                                    <th class="student_head">Category</th>
+                                    <th class="student_head">Age</th>
+                                    <th class="student_head">Description</th>
+                                </tr>
+                                    <% data.recent[0].forEach((stud)=>{ %>
+                                <tr>
+                                    <td><%= stud.name %></td>
+                                    <td><%= stud.schoolName %></td>
+                                    <td>Musabaqah</td>
+                                    <td><%= stud.category %></td>
+                                    <td><%= helpers.age(stud.dob) %></td>
+                                    <td><%= stud.description %></td>
+                                </tr>
+                                  <% }); %>
+
+                                  <% data.recent[1].forEach((stud)=>{ %>
+                                    <tr>
+                                        <td><%= stud.name %></td>
+                                        <td><%= stud.schoolName %></td>
+                                        <td>Quiz</td>
+                                        <td>--</td>
+                                        <td><%= helpers.age(stud.dob) %></td>
+                                        <td>--</td>
+                                    </tr>
+                                      <% }); %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub_area">
+                <div class="sub_container">
+                    <h3 class="dashed">Incoming activities</h3>
+                    <div class="sub_content">
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/badge.jpg" alt="">
+                            </div>
+                            <div class="sub_focus">
+                                <h4 class="sub_name">Gombe Academy</h4>
+                                <p class="sub_issue dashed">made payment @<span class="dashed">10:30pm</span></p>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Check</p>
+                            </div>
+                        </div>
+                        <!-- sub ends -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- js -->
+<script>
+
+ 
+        // JavaScript to handle the scroll effect
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+  
