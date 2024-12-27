@@ -2,7 +2,8 @@ const express = require("express")
 const router = express.Router();
 const { dashboard, application, participants, quiz, 
     editApplication, edit, edith, 
-    edithApplication, pay, adminPage, adminSchools, adminStudents } = require('../controllers/app')
+    edithApplication, pay, adminPage, adminSchools,
+     adminStudents, adminList } = require('../controllers/app')
 const { isAuthenticated } = require('../middlewares/authenticator')
 
 // define the routes
@@ -22,6 +23,7 @@ router.get('/admin/students', adminStudents);
 // Schools Page
 router.get('/admin/schools', adminSchools);
 
+router.get('/admin/students/list/:school', adminList)
 // Receipts Page
 router.get('/admin/reciepts', (req, res) => {
     res.render('pages/reciepts', { error: false, msg: '' });
