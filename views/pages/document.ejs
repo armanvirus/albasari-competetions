@@ -15,18 +15,18 @@
                         <h3>Quick Actions</h3>
                         <div class="dashboard" id="dashboard">
                             <div class="dashboard_top">
-                                <div href="/application/list" class="dashboard_card" onclick="downloadPDF()">
+                                <div class="dashboard_card">
                                     <div class="icon"><i class="fa fa-download"></i></div>
                                     <div class="detail">
                                         <p>Musabaqa Students List</p>
                                     </div>
                                 </div>
-                                <a href="/studentList/" class="dashboard_card">
+                                <div class="dashboard_card">
                                     <div class="icon"><i class="fa fa-download"></i></div>
                                     <div class="detail">
                                         <p>Hadith Students List</p>
                                     </div>
-                                </a>
+                                </div>
 
                                 <a href="/app/payment" class="dashboard_card">
                                     <div class="icon"><i class="fa fa-check"></i></div>
@@ -127,9 +127,14 @@
             <%- include('../partials/hamburger.ejs') %>
     </div>
 </div>
+<!-- JsPDF and autoTables -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
 <script defer>
    document.querySelector('.hambuger').addEventListener('click', function() {
     document.querySelector('.main_nav').classList.toggle('open');
     console.log("clicked");
   });
+  
 </script>
