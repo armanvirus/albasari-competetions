@@ -77,20 +77,25 @@ module.exports = {
         const registeredUser = await newUser.save();
         if (!registeredUser)
             return res.render('pages/register',{error:true, msg: "something went wrong"})
-            // return res.json({ status: 501, msg: "something went wrong" })
-        // const verificationParam = await encryptions.issueVerification(registeredUser,verificationModel)
-        // if(!verificationParam)
-        //     return res.json({status:401, msg:"something went wrong"})
-        // const link = `${req.protocol}://${req.hostname}:${PORT}/confirm/email/user/auth/${verificationParam.token}/${verificationParam.user}`
-        // const sub = "Email verification";
-        // const isSent = await sendMails(registeredUser.email, sub, link);
-        // if(!isSent){
-        //    await verificationModel.deleteMany({user:verificationParam.user})
-        //    return res.json({status:500, msg:"unable send varification mail at this moment"})
+
+        // const payvasselAcc = await createAccountPayvassel({ email, name, phoneNumber: phone })
+        // if (payvasselAcc && payvasselAcc.data.status) {
+        //     const newWallet = new walletModel({
+        //         user: registeredUser._id,
+        //         accounts: payvasselAcc.data.banks,
+        //         customerEmail: email,
+        //     });
+
+        //     await newWallet.save()
+        //     return res.json({
+        //         status: 201, msg: "account created now login",
+        //         data: registeredUser,
+        //     });
         // }
-        // res.json({ 
-        //     status: 201, msg:"account created successfully", 
-        //     data: registeredUser,
+
+        // await User.deleteOne({email})
+        // return res.json({
+        //     status: 401, msg: "error occur on creating account",
         // });
 
         res.redirect('/user/auth/login')

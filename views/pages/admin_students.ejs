@@ -13,325 +13,49 @@
             </div>
             <div class="bottom">
                 <div class="content_area">
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="1 Hizb">1 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <div class="foreward fa fa-arrow-down" data-target="cat_1_"></div>
+                    <% data.students.forEach((stud)=>{ %>
+                        
+                        <div class="content_container">
+                            <div class="filter_area">
+                                <form action="">
+                                    <select name="" id="" class="filter">
+                                        <option value="1 Hizb"><%= stud.category %></option>
+                                    </select>
+                                    <input type="search" name="" id="" placeholder="search here">
+                                </form>
+                                <div class="arrows">
+                                    <div class="foreward fa fa-arrow-down" data-target="cat_1_"></div>
+                                </div>
+                            </div>
+                            <div class="student_area">
+                                <div class="students">
+                                    <table id="cat_1_">
+                                        <thead>
+                                            <tr>
+                                                <th class="student_head">Name</th>
+                                                <th class="student_head">School</th>
+                                                <th class="student_head">Programme</th>
+                                                <th class="student_head">Category</th>
+                                                <th class="student_head">Age</th>
+                                                <th class="student_head">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <% stud.items.forEach((item)=>{ %>
+                                            <tr>
+                                                <td><%= item.name %></td>
+                                                <td><%= item.schoolName %></td>
+                                                <td>Musabaqah</td>
+                                                <td><%= item.category %></td>
+                                                <td><%= helpers.age(item.dob) %></td>
+                                                <td><%= item.description %></td>
+                                            </tr>
+                                              <% }); %>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_1_">
-                                    <thead>
-                                        <tr>
-                                            <th class="student_head">Name</th>
-                                            <th class="student_head">School</th>
-                                            <th class="student_head">Programme</th>
-                                            <th class="student_head">Category</th>
-                                            <th class="student_head">Age</th>
-                                            <th class="student_head">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat 2 section -->
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="3 Hizb">3 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <i class="foreward fa fa-arrow-down" data-target="cat_2_"></i>
+                          <% }); %>
 
-                            </div>
-                        </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_2_">
-                                    <thead>
-                                        <tr>
-                                            <th class="student_head">Name</th>
-                                            <th class="student_head">School</th>
-                                            <th class="student_head">Programme</th>
-                                            <th class="student_head">Category</th>
-                                            <th class="student_head">Age</th>
-                                            <th class="student_head">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat -3 section -->
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="5 Hizb">5 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <div class="foreward fa fa-arrow-down" data-target="cat_3_"></div>
-
-                            </div>
-                        </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_3_">
-                                    <thead>
-                                        <tr>
-                                            <th class="student_head">Name</th>
-                                            <th class="student_head">School</th>
-                                            <th class="student_head">Programme</th>
-                                            <th class="student_head">Category</th>
-                                            <th class="student_head">Age</th>
-                                            <th class="student_head">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat 4 section -->
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="10 Hizb">10 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <i class="foreward fa fa-arrow-down" data-target="cat_4_"></i>
-
-                            </div>
-                        </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_4_">
-                                    <thead>
-                                        <tr>
-                                            <th class="student_head">Name</th>
-                                            <th class="student_head">School</th>
-                                            <th class="student_head">Programme</th>
-                                            <th class="student_head">Category</th>
-                                            <th class="student_head">Age</th>
-                                            <th class="student_head">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat 5 section -->
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="20 Hizb">20 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <i class="foreward fa fa-arrow-down" data-target="cat_5_"></i>
-
-                            </div>
-                        </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_5_">
-                                    <thead>
-                                        <tr>
-                                            <th class="student_head">Name</th>
-                                            <th class="student_head">School</th>
-                                            <th class="student_head">Programme</th>
-                                            <th class="student_head">Category</th>
-                                            <th class="student_head">Age</th>
-                                            <th class="student_head">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat 6 section -->
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="40 Hizb">40 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <i class="foreward fa fa-arrow-down" data-target="cat_6_"></i>
-
-                            </div>
-                        </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_6_">
-                                    <thead>
-                                    <tr>
-                                        <th class="student_head">Name</th>
-                                        <th class="student_head">School</th>
-                                        <th class="student_head">Programme</th>
-                                        <th class="student_head">Category</th>
-                                        <th class="student_head">Age</th>
-                                        <th class="student_head">Description</th>
-                                    </tr>
-                                </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat 6 section -->
-                    <!-- cat 7section -->
-                    <div class="content_container">
-                        <div class="filter_area">
-                            <form action="">
-                                <select name="" id="" class="filter">
-                                    <option value="60 Hizb">60 Hizb</option>
-                                </select>
-                                <input type="search" name="" id="" placeholder="search here">
-                            </form>
-                            <div class="arrows">
-                                <i class="foreward fa fa-arrow-down" data-target="cat_7_"></i>
-
-                            </div>
-                        </div>
-                        <div class="student_area">
-                            <div class="students">
-                                <table id="cat_7_">
-                                   <thead>
-                                    <tr>
-                                        <th class="student_head">Name</th>
-                                        <th class="student_head">School</th>
-                                        <th class="student_head">Programme</th>
-                                        <th class="student_head">Category</th>
-                                        <th class="student_head">Age</th>
-                                        <th class="student_head">Description</th>
-                                    </tr>
-                                </thead>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- cat 7section -->
-                </div>
             </div>
         </main>
 </div>
