@@ -27,7 +27,7 @@
                         <div class="off_side">
                             <p class="dashed">Overall Schools</p>
                             <div class="amount">
-                                <h1 class="bold">15.00</h1>
+                                <h1 class="bold"><%= data.length %>.00</h1>
                                 <!-- <span class="dashed">₦</span> -->
                             </div>
                         </div>
@@ -79,54 +79,16 @@
                                         <th class="student_head">Total students</th>
                                         <th class="student_head">Registration status</th>
                                     </tr>
-                                    <tr>
-                                        <td>Sa'ad Bn abi waqqas</td>
-                                        <td>umarali7011@gmail.com</td>
-                                        <td>09068687011</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                        <td>registered</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Attadweer</td>
-                                        <td>umarali7011@gmail.com</td>
-                                        <td>09068687011</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                        <td>registered</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muhammad Bello Ibrahim</td>
-                                        <td>Gombe Academy</td>
-                                        <td>Musabaqah</td>
-                                        <td>40 Hizb</td>
-                                        <td>20</td>
-                                        <td>Suratu Nass</td>
-                                    </tr>
+                                    <% data.forEach((stud)=>{ %>
+                                        <tr>
+                                            <td><%= stud.user.name %></td>
+                                            <td><%= stud.user.email %></td>
+                                            <td><%= stud.user.phone %></td>
+                                            <td><%= stud.programs %></td>
+                                            <td><%= stud.totalStudents %></td>
+                                            <td>completed</td>
+                                        </tr>
+                                          <% }); %>
                                 </table>
                             </div>
                         </div>

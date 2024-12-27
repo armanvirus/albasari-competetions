@@ -220,4 +220,27 @@ module.exports = {
 
             } });
         },
+        adminSchools: async(req,res)=>{
+            // const schools = await schoolModel.find();
+            // const mongoose = require('mongoose');
+
+    // Get all users with populated "school" field
+    const users = await schoolModel.find()
+    const quiz = await quizModel.find()
+    const musabaqa = await musabaqaModel.find()
+// /create a new array with user data and number of students that corresponds to the user and if students exist in both quiz and musabaqa the object should contents programs and value of two if exist in one value 1 else 0
+    const data = users.map(user => {        
+        const students = musabaqa.filter(student => student.school == user._id).length; 
+        const students2 = quiz.filter(student => student.school == user._id).length;    
+        const program = students > 0 && students2 > 0 ? 2 : students > 0 || students2 > 0 ? 1 : 0;
+        return {
+            user,
+            programs: program,
+            totalStudents: students + students2,
+        };
+    }
+    );
+    console.log(data)
+                res.render('pages/admin_schools', { error: false, msg: '', data});
+        }
 }
