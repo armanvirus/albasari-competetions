@@ -270,6 +270,12 @@ module.exports = {
             const school = req.params.school;
             const students = await musabaqaModel.find({school}).sort({hizb:1})
             const students2 = await quizModel.find({school})
+            console.log(
+                {
+                    students,
+                    students2
+                } 
+            )
             res.render('pages/admin_list', { error: false, msg: '', data:{
                 students,
                 students2
