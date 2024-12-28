@@ -4,60 +4,60 @@
 
 <div class="main_container">
     <%- include('../partials/admin_nav') %>
-        <main>
-            <div class="upper">
-                <h1 class="all">
-                    Overall Students List
-                </h1>
-                <!-- upper cards starts -->
-            </div>
-            <div class="bottom">
-                <div class="content_area">
-                    <% data.students.forEach((stud)=>{ %>
-                        
-                        <div class="content_container">
-                            <div class="filter_area">
-                                <form action="">
-                                    <select name="" id="" class="filter">
-                                        <option value="1 Hizb"><%= stud.category %></option>
-                                    </select>
-                                    <input type="search" name="" id="" placeholder="search here">
-                                </form>
-                                <div class="arrows">
-                                    <div class="foreward fa fa-arrow-down" data-target="cat_1_"></div>
-                                </div>
-                            </div>
-                            <div class="student_area">
-                                <div class="students">
-                                    <table id="cat_1_">
-                                        <thead>
-                                            <tr>
-                                                <th class="student_head">Name</th>
-                                                <th class="student_head">School</th>
-                                                <th class="student_head">Programme</th>
-                                                <th class="student_head">Category</th>
-                                                <th class="student_head">Age</th>
-                                                <th class="student_head">Description</th>
-                                            </tr>
-                                        </thead>
-                                        <% stud.items.forEach((item)=>{ %>
-                                            <tr>
-                                                <td><%= item.name %></td>
-                                                <td><%= item.schoolName %></td>
-                                                <td>Musabaqah</td>
-                                                <td><%= item.category %></td>
-                                                <td><%= helpers.age(item.dob) %></td>
-                                                <td><%= item.description %></td>
-                                            </tr>
-                                              <% }); %>
-                                    </table>
-                                </div>
-                            </div>
+    <main>
+        <div class="upper">
+            <h1 class="all">
+                Overall Students List
+            </h1>
+        </div>
+        <div class="bottom">
+            <div class="content_area">
+                <% data.students.forEach((stud, index) => { %>
+                <div class="content_container">
+                    <div class="filter_area">
+                        <form action="">
+                            <select name="" id="" class="filter">
+                                <option value="1 Hizb"><%= stud.category %></option>
+                            </select>
+                            <input type="search" name="" id="" placeholder="search here">
+                        </form>
+                        <div class="arrows">
+                            <!-- Unique data-target for each button -->
+                            <div class="foreward fa fa-arrow-down" data-target="cat_<%= index %>"></div>
                         </div>
-                          <% }); %>
-
+                    </div>
+                    <div class="student_area">
+                        <div class="students">
+                            <!-- Unique table ID for each category -->
+                            <table id="cat_<%= index %>">
+                                <thead>
+                                    <tr>
+                                        <th class="student_head">Name</th>
+                                        <th class="student_head">School</th>
+                                        <th class="student_head">Programme</th>
+                                        <th class="student_head">Category</th>
+                                        <th class="student_head">Age</th>
+                                        <th class="student_head">Description</th>
+                                    </tr>
+                                </thead>
+                                <% stud.items.forEach((item) => { %>
+                                <tr>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.schoolName %></td>
+                                    <td>Musabaqah</td>
+                                    <td><%= item.category %></td>
+                                    <td><%= helpers.age(item.dob) %></td>
+                                    <td><%= item.description %></td>
+                                </tr>
+                                <% }); %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
             </div>
-        </main>
+        </div>
+    </main>
 </div>
 
 <!-- js -->
@@ -65,7 +65,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 <script>
-
     // JavaScript to handle the scroll effect
     const header = document.getElementById('main-header');
 
@@ -76,6 +75,7 @@
             header.classList.remove('scrolled');
         }
     });
+
     // Add event listeners for all category download buttons
     document.querySelectorAll(".foreward").forEach((button) => {
         button.addEventListener("click", async function () {
@@ -87,27 +87,18 @@
                 const imageUrl = "/img/letter head.png";
                 const imgData = await fetchImageAsBase64(imageUrl);
 
-                // Initialize imgHeight with a default value
                 let imgHeight = 0;
 
                 if (imgData) {
-                    // Get PDF dimensions
                     const pdfWidth = doc.internal.pageSize.getWidth();
-
-                    // Original dimensions of the image
                     const imgOriginalWidth = 2009;
                     const imgOriginalHeight = 653;
-
-                    // Calculate scaled image height
                     imgHeight = (imgOriginalHeight / imgOriginalWidth) * pdfWidth;
 
-                    // Add the image as a header
                     doc.addImage(imgData, "PNG", 0, 0, pdfWidth, imgHeight);
-                } else {
-                    console.warn("Image could not be added");
                 }
 
-                // Get the target table for the clicked button
+                // Get the unique target table ID
                 const targetTableId = button.getAttribute("data-target");
                 const tableElement = document.getElementById(targetTableId);
 
@@ -116,14 +107,14 @@
                     return;
                 }
 
-                // Add the table content
+                // Add the table content to the PDF
                 doc.autoTable({
                     html: tableElement,
-                    startY: imgHeight + 10, // Start below the image
+                    startY: imgHeight + 10,
                 });
 
-                // Save the PDF with a category-specific name
-                const category = targetTableId.replace("List", "");
+                // Save the PDF with a unique name
+                const category = targetTableId.replace("cat_", "Category_");
                 doc.save(`${category}_Musabaqa.pdf`);
             } catch (error) {
                 console.error("Error generating PDF:", error);
@@ -148,6 +139,4 @@
             return null; // Fallback behavior
         }
     }
-
-
 </script>

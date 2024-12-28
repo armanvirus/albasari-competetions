@@ -1,0 +1,129 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/styles/admin_list.css">
+
+<div class="main_container">
+    <%- include('../partials/admin_nav') %>
+    <main>
+        <div class="upper">
+            <h2 style="color: #333; margin: 20px;">
+                <%= school.name %> / Students
+            </h2>
+        </div>
+        <div class="bottom">
+            <div class="content_area">
+                <div class="content_container">
+                    <div class="filter_area">
+                        <form action="">
+                            <select name="" id="" class="filter">
+                                <option value="Filter">Filter</option>
+                                <option value="Name">Name</option>
+                                <option value="Programme">Programme</option>
+                                <option value="Category">Category</option>
+                                <option value="Riwaya">Riwaya</option>
+                                <option value="Age">Age</option>
+                                <option value="Matashiya">Matashiya</option>
+                            </select>
+                            <input type="search" name="" id="" placeholder="search here">
+                        </form>
+                        <div class="arrows">
+                            <div class="backward"></div>
+                            <div class="foreward"></div>
+                        </div>
+                    </div>
+                    <div class="student_area">
+                        <div class="students">
+                            <table>
+                                <tr>
+                                    <th class="student_head">Name</th>
+                                    <th class="student_head">Programme Registered</th>
+                                    <th class="student_head">Category</th>
+                                    <th class="student_head">Age</th>
+                                    <th class="student_head">Description</th>
+                                </tr>
+                                <% if (students.length > 0) { %>
+                                    <% students.forEach(student => { %>
+                                        <tr>
+                                            <td><%= student.name %></td>
+                                            <td><%= student.programme %></td>
+                                            <td><%= student.category || '--' %></td>
+                                            <td><%= student.age %></td>
+                                            <td><%= student.description || '--' %></td>
+                                        </tr>
+                                    <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="6">No students found for this school.</td>
+                                    </tr>
+                                <% } %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub_area">
+                <div class="sub_container">
+                    <div class="sub_content">
+                        <div class="sub">
+                            <div class="sub_logo">
+                                <img src="/img/profile.webp" alt="School Profile">
+                            </div>
+                            <div class="sub_focus">
+                                <div class="details">
+                                    <div class="row">
+                                        <div class="detail_contact">
+                                            <div class="icons">
+                                                <i class="fa fa-university"></i>
+                                                <span>School</span>
+                                            </div>
+                                            <p><%= school.name %></p>
+                                        </div>
+                                        <div class="detail_contact">
+                                            <div class="icons">
+                                                <i class="fa fa-envelope"></i>
+                                                <span>Email</span>
+                                            </div>
+                                            <p><%= school.email %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="detail_contact">
+                                            <div class="icons">
+                                                <i class="fa fa-phone-square"></i>
+                                                <span>Contact</span>
+                                            </div>
+                                            <p><%= school.contact %></p>
+                                        </div>
+                                        <div class="detail_contact">
+                                            <div class="icons">
+                                                <i class="fa fa-home"></i>
+                                                <span>Address</span>
+                                            </div>
+                                            <p><%= school.address %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub_action">
+                                <p class="">Message</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- js -->
+<script>
+    const header = document.getElementById('main-header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
