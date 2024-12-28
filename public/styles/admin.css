@@ -17,7 +17,7 @@
 }
 body {
     background: var(--main-bg);
-    font-family: GraphikBold;
+    font-family: GraphikBold, ubuntu, sans-serif;
 }
 a {
     text-decoration: none;
@@ -113,8 +113,18 @@ main {
 .upper .upper_top > .left .in_side .in_up p{
     margin: 10px 0;
 }
+
+
 .upper .upper_top > .left .off_side  p{
     margin: 10px 0;
+}
+i.eye{
+    /* background: red; */
+    position: absolute;
+    left: 650px;
+    top: 152px;
+    font-size: 20px;
+    cursor: pointer;
 }
 .upper .upper_top > .left .off_side  .amount{
     display: flex;
