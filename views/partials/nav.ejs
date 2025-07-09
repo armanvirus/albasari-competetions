@@ -1,12 +1,23 @@
 <nav class="main_nav">
+    <div class="nav-brand">
+        <img src="/img/logo.png" alt="Albasari" onerror="this.style.display='none'">
+        <h3>Albasari</h3>
+    </div>
+    
     <div class="menu" id="menu">
         <ul>
-            <li><a href="/app/dashboard" class="dashboard_link"><i class="fa fa-tasks" ></i> &nbsp; Dashboard</a></li>
-            <li><a href="/app/application"><i class="fa fa-cloud"></i> &nbsp; Applications</a></li>
-            <li><a href="/app/document"><i class="fa fa-sliders"></i> &nbsp; Students</a></li>
-            <li><a href="/app/pay"><i class="fa fa-credit-card-alt"></i> &nbsp; Payments</a></li>
-            <li><a href="/app/profile"><i class="fa fa-user"></i> &nbsp; Profile</a></li>
-            <li><a href="/user/auth/logout"><i class="fa fa-power-off"></i> &nbsp; Logout</a></li>
+            <li><a href="/app/dashboard" class="dashboard_link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="/app/application"><i class="fas fa-file-alt"></i> Applications</a></li>
+            <li><a href="/app/document"><i class="fas fa-users"></i> Students</a></li>
+            <li><a href="/app/pay"><i class="fas fa-credit-card"></i> Payments</a></li>
+            <li><a href="/app/profile"><i class="fas fa-user-circle"></i> Profile</a></li>
         </ul>
     </div>
+    
+    <div class="nav-logout">
+        <a href="/user/auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
 </nav>
+
+<!-- Navigation overlay for mobile -->
+<div class="nav-overlay"></div>

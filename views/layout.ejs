@@ -3,18 +3,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Albasari Competetion</title>
+    <title>Albasari Competition</title>
+    
+    <!-- Enhanced CSS Architecture -->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/navigation.css" />
+    <link rel="stylesheet" href="/styles/dashboard-enhanced.css" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fallback for older styles -->
     <link rel="stylesheet" href="/styles.css" />
     
+    <!-- Notification styles -->
+    <style>
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        max-width: 300px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+      
+      .notification.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      
+      .notification.success {
+        background: linear-gradient(135deg, #28a745, #20c997);
+      }
+      
+      .notification.error {
+        background: linear-gradient(135deg, #dc3545, #f07979);
+      }
+      
+      .notification.info {
+        background: linear-gradient(135deg, #17a2b8, #20c997);
+      }
+      
+      .notification.warning {
+        background: linear-gradient(135deg, #ffc107, #f9ed65);
+        color: #333;
+      }
+    </style>
   </head>
   <body>
-    <!-- <%- include('partials/header') %> -->
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+      <div class="spinner"></div>
+    </div>
+    
+    <!-- Notification container -->
+    <div id="notification-container"></div>
 
     <div class="container">
       <!-- This is where the page content will be injected -->
       <%- body %>
     </div>
 
-    <!-- <%- include('partials/footer') %> -->
+    <!-- Enhanced JavaScript -->
+    <script>
+      // Notification system
+      function showNotification(message, type = 'info', duration = 5000) {
+        const container = document.getElementById('notification-container');
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas ${getIconForType(type)}"></i>
+            <span>${message}</span>
+          </div>
+        `;
+        
+        container.appendChild(notification);
+        
+        // Trigger animation
+        setTimeout(() => notification.classList.add('show'), 100);
+        
+        // Auto remove
+        setTimeout(() => {
+          notification.classList.remove('show');
+          setTimeout(() => {
+            if (notification.parentNode) {
+              notification.parentNode.removeChild(notification);
+            }
+          }, 300);
+        }, duration);
+      }
+      
+      function getIconForType(type) {
+        switch(type) {
+          case 'success': return 'fa-check-circle';
+          case 'error': return 'fa-exclamation-circle';
+          case 'warning': return 'fa-exclamation-triangle';
+          default: return 'fa-info-circle';
+        }
+      }
+      
+      // Loading overlay functions
+      function showLoading() {
+        document.getElementById('loading-overlay').style.display = 'flex';
+      }
+      
+      function hideLoading() {
+        document.getElementById('loading-overlay').style.display = 'none';
+      }
+      
+      // Enhanced form handling
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add loading states to forms
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+          form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            }
+            showLoading();
+          });
+        });
+        
+        // Add real-time validation
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          input.addEventListener('blur', function() {
+            if (this.checkValidity()) {
+              this.classList.add('is-valid');
+              this.classList.remove('is-invalid');
+            } else {
+              this.classList.add('is-invalid');
+              this.classList.remove('is-valid');
+            }
+          });
+        });
+        
+        // Enhanced navigation
+        const navLinks = document.querySelectorAll('.menu a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
+            this.classList.add('active');
+          });
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hambuger');
+        const navOverlay = document.querySelector('.nav-overlay');
+        const mainNav = document.querySelector('.main_nav');
+        
+        if (hamburger && mainNav) {
+          hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mainNav.classList.toggle('open');
+            if (navOverlay) {
+              navOverlay.classList.toggle('active');
+            }
+          });
+          
+          // Close menu when clicking overlay
+          if (navOverlay) {
+            navOverlay.addEventListener('click', function() {
+              hamburger.classList.remove('active');
+              mainNav.classList.remove('open');
+              navOverlay.classList.remove('active');
+            });
+          }
+        }
+      });
+    </script>
+    
+    <style>
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+      }
+      
+      .is-valid {
+        border-color: var(--success-color) !important;
+      }
+      
+      .is-invalid {
+        border-color: var(--error-color) !important;
+      }
+    </style>
   </body>
 </html>
