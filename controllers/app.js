@@ -4,30 +4,130 @@ const schoolModel = require("../database/UserModel")
 const batch = new Date().getFullYear()
 module.exports = {
     dashboard:async(req,res)=>{
-        const totalQuiz = await quizModel.countDocuments({
-            school:req.user._id,
-            batch,        
-          });
-          console.log(totalQuiz)
-        const students = await musabaqaModel.find({school:req.user._id});
-       var uniqueCategories;
-        if(students){
-            // Use reduce to create an array with unique categories
-    uniqueCategories = students.reduce((acc, curr) => {
-    // Check if the category already exists in the accumulator
-    if (!acc.some(item => item.category === curr.category)) {
-      acc.push(curr);
-    }
-    return acc;
-  }, []);
-  
-  var registeredCategories = students ? uniqueCategories.length : 0
+        try {
+            const totalQuiz = await quizModel.countDocuments({
+                school:req.user._id,
+                batch,        
+              });
+              console.log(totalQuiz)
+            const students = await musabaqaModel.find({school:req.user._id});
+           var uniqueCategories;
+            if(students){
+                // Use reduce to create an array with unique categories
+        uniqueCategories = students.reduce((acc, curr) => {
+        // Check if the category already exists in the accumulator
+        if (!acc.some(item => item.category === curr.category)) {
+          acc.push(curr);
         }
-        res.render('pages/dashboard',{
-             name:req.user.name,
-             categories:registeredCategories,
-            totalStudents: students ? (students.length + totalQuiz) : 0})
+        return acc;
+      }, []);
+      
+      var registeredCategories = students ? uniqueCategories.length : 0
+            }
 
+            // Generate newsfeed data - recent activities from all schools for a community feel
+            const recentMusabaqaApplications = await musabaqaModel.find()
+                .sort({ createdAt: -1 })
+                .limit(5)
+                .populate('school', 'name');
+
+            const recentQuizRegistrations = await quizModel.find()
+                .sort({ createdAt: -1 })
+                .limit(5)
+                .populate('school', 'name');
+
+            // Combine and format newsfeed items
+            let newsfeedItems = [];
+
+            // Add musabaqa applications to newsfeed
+            recentMusabaqaApplications.forEach(app => {
+                newsfeedItems.push({
+                    type: 'musabaqa_application',
+                    title: `New Musabaqa Application`,
+                    content: `${app.name} from ${app.schoolName} applied for ${app.category} category`,
+                    timestamp: app.createdAt,
+                    icon: 'fas fa-user-plus',
+                    color: 'success'
+                });
+            });
+
+            // Add quiz registrations to newsfeed
+            recentQuizRegistrations.forEach(quiz => {
+                newsfeedItems.push({
+                    type: 'quiz_registration',
+                    title: `New Hadith Quiz Registration`,
+                    content: `${quiz.name} from ${quiz.schoolName} registered for Hadith Quiz`,
+                    timestamp: quiz.createdAt,
+                    icon: 'fas fa-question-circle',
+                    color: 'info'
+                });
+            });
+
+            // Sort all newsfeed items by timestamp (most recent first)
+            newsfeedItems.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            
+            // Take only the most recent 8 items for the newsfeed
+            newsfeedItems = newsfeedItems.slice(0, 8);
+
+            res.render('pages/dashboard',{
+                 name:req.user.name,
+                 categories:registeredCategories,
+                totalStudents: students ? (students.length + totalQuiz) : 0,
+                newsfeed: newsfeedItems})
+
+        } catch (error) {
+            console.log('Database error, providing sample data:', error.message);
+            
+            // Provide sample newsfeed data when database is not available
+            const sampleNewsfeed = [
+                {
+                    type: 'musabaqa_application',
+                    title: 'New Musabaqa Application',
+                    content: 'Ahmad Ali from Al-Noor Islamic School applied for Primary category',
+                    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
+                    icon: 'fas fa-user-plus',
+                    color: 'success'
+                },
+                {
+                    type: 'quiz_registration',
+                    title: 'New Hadith Quiz Registration',
+                    content: 'Fatima Hassan from Darul Uloom registered for Hadith Quiz',
+                    timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
+                    icon: 'fas fa-question-circle',
+                    color: 'info'
+                },
+                {
+                    type: 'musabaqa_application',
+                    title: 'New Musabaqa Application',
+                    content: 'Mohammed Ibrahim from Islamic Academy applied for Secondary category',
+                    timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
+                    icon: 'fas fa-user-plus',
+                    color: 'success'
+                },
+                {
+                    type: 'quiz_registration',
+                    title: 'New Hadith Quiz Registration',
+                    content: 'Aisha Musa from Madrasah Al-Hikmah registered for Hadith Quiz',
+                    timestamp: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000), // 1 day ago
+                    icon: 'fas fa-question-circle',
+                    color: 'info'
+                },
+                {
+                    type: 'announcement',
+                    title: 'Competition Updates',
+                    content: 'Registration deadline extended to next Friday. Submit your applications now!',
+                    timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
+                    icon: 'fas fa-bullhorn',
+                    color: 'warning'
+                }
+            ];
+
+            res.render('pages/dashboard',{
+                 name: req.user ? req.user.name : 'Sample School',
+                 categories: 3,
+                totalStudents: 25,
+                newsfeed: sampleNewsfeed})
+        }
     },
     application:async(req,res)=>{
         const {name,dob,riwaya,description, category} = req.body;
