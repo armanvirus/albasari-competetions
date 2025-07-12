@@ -7,9 +7,9 @@
         
         <main class="main">
             <div class="banner">
-                <h1>Welcome Back!</h1>
+                <h1>Welcome Home!</h1>
                 <h2 class="school_name"><%= name %></h2>
-                <p>Manage your competitions and track your students' progress</p>
+                <p>Stay connected with the Albasari community and manage your activities</p>
             </div>
             
             <div class="main_inner">
@@ -69,38 +69,59 @@
                         </div>
                     </div>
                     
-                    <!-- Recent Activity Section -->
+                    <!-- Community Newsfeed Section -->
                     <div class="recent-activity">
-                        <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                        <h3><i class="fas fa-rss"></i> Community Newsfeed</h3>
+                        <p class="newsfeed-description">Stay updated with latest activities from the Albasari community</p>
                         <ul class="activity-list">
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-user-plus"></i>
-                                </div>
-                                <div class="activity-content">
-                                    <div class="activity-title">New student registered</div>
-                                    <div class="activity-time">2 hours ago</div>
-                                </div>
-                            </li>
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Application submitted</div>
-                                    <div class="activity-time">1 day ago</div>
-                                </div>
-                            </li>
-                            <li class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-credit-card"></i>
-                                </div>
-                                <div class="activity-content">
-                                    <div class="activity-title">Payment processed</div>
-                                    <div class="activity-time">2 days ago</div>
-                                </div>
-                            </li>
+                            <% if (newsfeed && newsfeed.length > 0) { %>
+                                <% newsfeed.forEach(function(item) { %>
+                                    <li class="activity-item newsfeed-item">
+                                        <div class="activity-icon <%= item.color %>">
+                                            <i class="<%= item.icon %>"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title"><%= item.title %></div>
+                                            <div class="activity-description"><%= item.content %></div>
+                                            <div class="activity-time">
+                                                <% 
+                                                    const timeAgo = (new Date() - new Date(item.timestamp)) / (1000 * 60 * 60); 
+                                                    if (timeAgo < 1) {
+                                                        const minutesAgo = Math.floor(timeAgo * 60);
+                                                        if (minutesAgo < 1) { %>
+                                                            just now
+                                                        <% } else { %>
+                                                            <%= minutesAgo %> minute<%= minutesAgo > 1 ? 's' : '' %> ago
+                                                        <% }
+                                                    } else if (timeAgo < 24) { %>
+                                                        <%= Math.floor(timeAgo) %> hour<%= Math.floor(timeAgo) > 1 ? 's' : '' %> ago
+                                                    <% } else { %>
+                                                        <%= Math.floor(timeAgo / 24) %> day<%= Math.floor(timeAgo / 24) > 1 ? 's' : '' %> ago
+                                                    <% } %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% }); %>
+                            <% } else { %>
+                                <li class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Welcome to Albasari!</div>
+                                        <div class="activity-description">Start by submitting applications or registering students to see community activities here.</div>
+                                        <div class="activity-time">Now</div>
+                                    </div>
+                                </li>
+                            <% } %>
                         </ul>
+                        
+                        <!-- View More Activities Button -->
+                        <div class="newsfeed-actions">
+                            <a href="#" class="btn-newsfeed-more" onclick="loadMoreActivities()">
+                                <i class="fas fa-chevron-down"></i> View More Activities
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,4 +168,29 @@
             }
         }, 1000);
     });
+
+    // Function to load more activities (for future implementation)
+    function loadMoreActivities() {
+        // This could be enhanced to load more activities via AJAX
+        console.log('Loading more activities...');
+        
+        // For now, show a simple message
+        const button = document.querySelector('.btn-newsfeed-more');
+        const originalText = button.innerHTML;
+        
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+        button.style.pointerEvents = 'none';
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.style.pointerEvents = 'auto';
+            
+            // Show notification if available
+            if (typeof showNotification === 'function') {
+                showNotification('All recent activities are already displayed!', 'info');
+            } else {
+                alert('All recent activities are already displayed!');
+            }
+        }, 1500);
+    }
 </script>
